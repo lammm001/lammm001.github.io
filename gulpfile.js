@@ -32,7 +32,7 @@ var cache;
 var srcFolder = './src/';
 var dstFolder = './dest/';
 var pubFolder = './public/';
-var bulFolder = './build/';
+var bulFolder = './docs/';
 var idxFolder = './index/';
 var plgFolder = './plugins/';
 
