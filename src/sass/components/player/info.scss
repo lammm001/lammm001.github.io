@@ -1,0 +1,70 @@
+.player-info {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-130%);
+  transition: transform 0.3s, opacity 0.3s;
+  border-radius: 0.5em;
+
+  @media screen and (max-width: $media_xm) {
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+
+  &__body {
+    padding: 0.5em 1.5em;
+  }
+
+  &.info--visible {
+    transform: translateY(0);
+    opacity: 1
+  }
+
+  &__name {
+    font-size: 1.5em;
+    word-break: break-all;
+  }
+
+  &__line {
+    display: flex;
+  }
+
+  &__time {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 1.5em;
+    padding-left: 1em;
+  }
+
+  &__error {
+    margin-top: 1em;
+    font-size: 1.2em;
+  }
+
+  &__values {
+    display: flex;
+    margin-top: 1.2em;
+
+    > div {
+      margin-right: 1em;
+
+      span {
+        font-size: 1.3em;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+body.platform--browser,
+body.platform--nw {
+  .player-info {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+  }
+}

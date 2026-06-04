@@ -1,0 +1,18 @@
+.time-line {
+  margin-top: 1em;
+  border-radius: 3em;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  > div {
+    height: 0.4em;
+    border-radius: 3em;
+    background-color: greenyellow;
+  }
+}
+
+
+.time-line-details {
+  @media screen and (max-width: $media_sm) {
+    display: none;
+  }
+}

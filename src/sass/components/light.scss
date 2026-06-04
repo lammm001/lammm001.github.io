@@ -1,0 +1,45 @@
+body.light--version {
+  @media screen and (min-width: $media_md) {
+    .wrap__left {
+      position: static;
+      background: transparent;
+      margin-left: 0;
+    }
+
+    .background {
+      display: none;
+    }
+
+    .card--category {
+      width: 20%;
+    }
+
+    .files__left {
+      font-size: 0.7em;
+    }
+    .files__body {
+      max-width: inherit;
+    }
+
+    .timetable__item {
+      width: 16.66%;
+    }
+
+    .card--small .card__title {
+      margin-top: 0.5em;
+    }
+
+    .items-line .card {
+      margin-bottom: 2em;
+    }
+  }
+
+  .card__img,
+  .card__quality,
+  .items-line__more,
+  .card-more__box,
+  .card__type,
+  .card__promo {
+    border-radius: 0;
+  }
+}

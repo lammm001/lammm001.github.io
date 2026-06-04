@@ -1,0 +1,19 @@
+bot/
+dest/
+plugins/clear
+plugins/anime
+plugins/strawberry
+index/
+node_modules/
+svg/
+temp/
+my
+.idea/
+public/css/app.css
+package-lock.json
+
+# Local Netlify folder
+.netlify
+/.gitattributes
+/my/html1.html
+/my/json1.json

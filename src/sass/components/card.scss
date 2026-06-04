@@ -1,0 +1,244 @@
+.card {
+  flex-shrink: 0;
+  width: 11.85em;
+  transition: margin-top 0.3s;
+  position: relative;
+
+  + .card {
+    margin-left: 2em;
+  }
+
+  &__img {
+    border-radius: 0.3em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #3E3E3E;
+  }
+
+  &__view {
+    margin-bottom: 1em;
+    position: relative;
+    padding-bottom: 150%;
+  }
+
+  &__title {
+    font-size: 1.2em;
+    max-height: 3.6em;
+    overflow: hidden;
+    line-height: 1.2;
+    text-overflow: ".";
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  &__age {
+    font-size: 0.9em;
+    margin-top: 0.6em;
+  }
+
+  &__icons {
+    position: absolute;
+    top: 0.9em;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+
+    &-inner {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 5em;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__icon {
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 100%;
+    background-size: 60%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+
+    &.icon {
+      &--book {
+        background-image: url(../img/icons/menu/bookmark.svg);
+      }
+
+      &--wath {
+        background-image: url(../img/icons/menu/time.svg);
+      }
+
+      &--like {
+        background-image: url(../img/icons/menu/like.svg);
+      }
+
+      &--history {
+        background-image: url(../img/icons/settings/player.svg);
+      }
+    }
+  }
+
+  &__promo {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: $offset*2 $offset $offset $offset;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+    border-bottom-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+
+    &-text {
+      font-size: 1.3em;
+      line-height: 1.2;
+    }
+  }
+
+  &__type {
+    position: absolute;
+    left: -0.8em;
+    top: 1.4em;
+    padding: 0.4em 0.4em;
+    background: #fff;
+    color: #000;
+    font-size: 0.8em;
+    border-radius: 0.3em;
+  }
+
+  &__new-episode {
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    bottom: 0.8em;
+
+    > div {
+      background-color: #57F570;
+      border-radius: 5em;
+      padding: 0.5em 1em;
+      color: #17491C;
+      display: inline-block;
+    }
+  }
+
+  &__quality {
+    position: absolute;
+    left: -0.8em;
+    bottom: 1em;
+    padding: 0.4em 0.4em;
+    background: #ffe216;
+    color: #000;
+    font-size: 0.8em;
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    border-radius: 0.3em;
+    text-transform: uppercase;
+  }
+
+  &.focus {
+    .card__img {
+      border-color: #fff;
+      box-shadow: 0 0 0 0.4em #fff;
+    }
+  }
+
+  &--tv {
+    .card__type {
+      background: #ff4242;
+      color: #fff;
+    }
+  }
+
+  &--small {
+    width: 10.8em;
+
+    + .card {
+      margin-left: 1em;
+    }
+
+    .card__view {
+      margin-bottom: 0;
+    }
+
+    &.focus {
+      .card__img {
+        box-shadow: 0 0 0 0.3em #fff;
+      }
+    }
+
+    &.card--wide {
+      width: 34.3em;
+
+      .card__view {
+        padding-bottom: 56%;
+      }
+    }
+  }
+
+  &--category {
+    width: 14.266%;
+    padding-bottom: 1em;
+
+    &.focus {
+      .card__img {
+        box-shadow: 0 0 0 0.3em #fff;
+      }
+    }
+
+    @media screen and (max-width: $media_lg) {
+      width: 16.6%;
+    }
+
+    @media screen and (max-width: $media_md) {
+      width: 20%;
+    }
+
+    @media screen and (max-width: $media_sm) {
+      width: 25%;
+    }
+
+    @media screen and (max-width: $media_xs) {
+      width: 33.3%;
+    }
+  }
+
+  &--collection {
+    padding-bottom: 1em;
+    width: 25%;
+
+    .card__view {
+      padding-bottom: 60%;
+    }
+
+    @media screen and (max-width: $media_sm) {
+      width: 33.3%;
+    }
+
+    @media screen and (max-width: $media_xs) {
+      width: 50%;
+    }
+  }
+
+  &--radio {
+    padding-bottom: 1em;
+    width: 16.666%;
+
+    @media screen and (max-width: $media_md) {
+      width: 14.266%;
+    }
+
+    @media screen and (max-width: $media_sm) {
+      width: 33.333%;
+    }
+
+    @media screen and (max-width: $media_xs) {
+      width: 25%
+    }
+  }
+}

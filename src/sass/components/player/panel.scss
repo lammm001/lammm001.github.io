@@ -1,0 +1,269 @@
+.player-panel {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(130%);
+  transition: transform 0.3s, opacity 0.3s;
+  width: auto;
+  border-radius: 0.5em;
+
+  @media screen and (max-width: $media_xm) {
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  &.panel--visible {
+    transform: translateY(0);
+    opacity: 1
+  }
+
+  &__body {
+    padding-left: $offset;
+    padding-right: $offset;
+    padding-bottom: 0.5em;
+  }
+
+  &__timeline-wrapper {
+    height: 4.5em;
+    padding-top: 2em;
+  }
+
+  &__timeline {
+    position: relative;
+    height: 0.2em;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2em;
+    margin-bottom: 0.6em;
+
+    &.focus {
+      box-shadow: 0 0 0 0.1em #fff;
+
+      .player-panel__position > div:after {
+        transform: translateY(-50%) translateX(50%) scale(1.5) !important;
+      }
+    }
+  }
+
+  &__peding,
+  &__position {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 5em;
+  }
+
+  &__peding {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  &__position {
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+
+    > div {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 1em;
+        height: 1em;
+        border-radius: 100%;
+        flex-shrink: 0;
+        background-color: #fff;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%) translateX(50%);
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &__time {
+    position: absolute;
+    bottom: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.3em;
+    transform: translateX(-50%);
+    margin-bottom: 0.5em;
+    padding: 0.4em;
+  }
+
+  &__line {
+    display: flex;
+    align-items: center;
+
+    + .player-panel__line {
+      margin-top: 1em;
+    }
+  }
+
+  &__timeend {
+    margin-left: auto;
+  }
+
+  &__left,
+  &__right {
+    width: 35%;
+    display: flex;
+  }
+
+  &__right {
+    justify-content: flex-end;
+  }
+
+  &__left {
+    @media screen and (max-width: $media_sm) {
+      display: none;
+    }
+  }
+
+  &__center {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: $media_sm) {
+      margin-right: auto;
+      width: 60%;
+      justify-content: flex-start;
+    }
+  }
+
+  .button {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 100%;
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    padding: 0.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    &.focus {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+
+  &__right,
+  &__left {
+    .button + .button {
+      margin-left: 1.2em;
+    }
+  }
+
+  &__playpause {
+    font-size: 1.4em;
+    margin: 0 1.5em;
+
+    > div {
+      width: 70%;
+      height: 70%;
+    }
+
+    > div:first-child {
+      display: none;
+    }
+
+    @media screen and (max-width: $media_sm) {
+      order: -1;
+      margin-left: 0;
+    }
+  }
+
+  &__filename {
+    font-size: 1.7em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2em;
+  }
+
+
+  &__quality {
+    width: auto !important;
+    padding: 0.1em 0.5em !important;
+    border-radius: 0.2em !important;
+    text-transform: uppercase;
+  }
+
+  &__tstart {
+    margin-right: 1.2em;
+  }
+
+  &__tend {
+    margin-left: 1.2em;
+  }
+
+  &__next,
+  &__prev {
+    padding: 0.55em !important;
+  }
+
+  &__rprev,
+  &__rnext {
+    @media screen and (max-width: $media_md) {
+      display: none !important;
+    }
+  }
+
+  &__playlist {
+    padding: 0.5em !important;
+  }
+
+  &__subs {
+    padding: 0.45em !important;
+  }
+
+  &__settings {
+    padding: 0.35em !important;
+  }
+
+  &__fullscreen, &__pip {
+    //@media screen and (max-width: $media_md) {
+      display: none !important;
+    //}
+  }
+
+  &__next-episode-name {
+    align-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 1em;
+  }
+
+  &.panel--paused {
+    .player-panel__playpause {
+      > div {
+        &:first-child {
+          display: block;
+        }
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+body.platform--browser,
+body.platform--nw {
+  .player-panel {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+  }
+}
