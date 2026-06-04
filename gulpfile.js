@@ -109,12 +109,12 @@ function build_web(done) {
 
     //таймер сила!
     copy_timer = setTimeout(() => {
-        src([dstFolder + 'app.js']).pipe(dest(bulFolder + 'web/'));
+        src([dstFolder + 'app.js']).pipe(dest(bulFolder + '/'));
 
         fs.readdirSync(dstFolder).filter(function (file) {
             return fs.statSync(dstFolder + '/' + file).isDirectory();
         }).forEach(folder => {
-            src([dstFolder + folder + '/' + folder + '.js']).pipe(dest(bulFolder + 'web/plugins'));
+            src([dstFolder + folder + '/' + folder + '.js']).pipe(dest(bulFolder + '/plugins'));
         });
         console.log('\n\n@@@@@@@@@ FINISHED BUILD @@@@@@@@@@\n\n');
     }, 500)
@@ -159,7 +159,7 @@ function sync_task(path) {
 }
 
 function sync_web() {
-    return sync_task('web/');
+    return sync_task('/');
 }
 
 function sync_webos() {
@@ -211,7 +211,7 @@ function watch(done) {
 function browser_sync(done) {
     browser.init({
         server: {
-            baseDir: bulFolder + 'web/'
+            baseDir: bulFolder + '/'
         },
         https: false,
         open: false,
