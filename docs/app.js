@@ -14597,7 +14597,7 @@
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
       network$3.timeout(1000 * Storage.field('parse_timeout'));
-      var proxy = 'https://cr-jgp4.onrender.com/';
+      var proxy = 'https://vi1pr.netlify.app/pr/';
 
       if (Platform.is('android')) {
         proxy = '';
@@ -20290,8 +20290,8 @@
     select$1('account_password', '', '');
     select$1('device_name', '', 'Lampa');
     select$1('player_nw_path', '', 'C:/Program Files/VideoLAN/VLC/vlc.exe');
-    select$1('tmdb_proxy_api', '', 'https://cr-jgp4.onrender.com');
-    select$1('tmdb_proxy_image', '', 'https://cr-jgp4.onrender.com');
+    select$1('tmdb_proxy_api', '', 'https://vi1pr.netlify.app/pr');
+    select$1('tmdb_proxy_image', '', 'https://vi1pr.netlify.app/pr');
     var Params = {
       listener: listener$2,
       init: init$8,

@@ -470,8 +470,8 @@ select('account_email', '', '')
 select('account_password', '', '')
 select('device_name', '', 'Lampa')
 select('player_nw_path', '', 'C:/Program Files/VideoLAN/VLC/vlc.exe')
-select('tmdb_proxy_api', '', 'https://cr-jgp4.onrender.com')
-select('tmdb_proxy_image', '', 'https://cr-jgp4.onrender.com')
+select('tmdb_proxy_api', '', 'https://vi1pr.netlify.app/pr')
+select('tmdb_proxy_image', '', 'https://vi1pr.netlify.app/pr')
 
 export default {
     listener,

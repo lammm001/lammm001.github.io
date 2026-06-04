@@ -2,7 +2,7 @@ function SpankBang(component) {
     var network = new Lampa.Reguest();
     // let proxy = ''
     // let proxy = 'https://vi1pr.netlify.app/pr/'
-    let proxy = 'https://cr-jgp4.onrender.com/'
+    let proxy = 'https://vi1pr.netlify.app/pr/'
     const baseUrl = proxy + 'https://spankbang.com';
     let cookie = 'coe=ww; cookie_consent_required=1; show_cookie_consent_modal=1; age_pass=1; coc=PL; cor=Unknown; cfc_ok=00|2|ww|spankbang|master|0; av=simple:False:True; backend_version=main; _cfuvid=JQkhuxq5tUhWAr7SYBWKt287axcY00PKgwRwKE6S4P4-1780241291.6168897-1.0.1.1-hupyIZk_UUFjyAYSm0PJmKhy6btmP7iHigB.v0Xe2d0; sb_session=eyJfcGVybWFuZW50Ijp0cnVlLCJ1c2VyIjp7ImlkIjowfX0.ahxTjQ.Y83sNaldPrkAKvSr719jGVz1wcM; ana_vid=40e3da24135c8aa1951fb0101e27d0114fa33d862a85f7ead242a7b91380163e; ana_sid=40e3da24135c8aa1951fb0101e27d0114fa33d862a85f7ead242a7b91380163e; cf_clearance=_zDLdwOxuWpuMUu5Jtqo6L7yv3fUun6nrfURfN_u.T4-1780241299-1.2.1.1-SjMXkaP5Y6_Zlf4YWZukqzez2dfFtFk2aN8Yrlm1iaEF7n0Vuh4NrSaq7DNS2ZhSSub45VYHRBb.._0.AoVMoywJvswa4XnIk0VHpxoSk1iS7_fDfoijvHtt9vP5MRhaVWqT5RxqqKddE5RaoEECRMf.9ae1Wy15Q9SMijLTKtxcmkCK0O87AU4GbrRhh9tIlbaBtIQ.xlEcdz.DsXyH3fN4BqvYX0YAD_CA5uqUZOrkGxkgKjTXzfcOLyO1wURxDuuLTZuhIV2RjI55LJN9hrKuBvgLvuZkr9OlyYtMeMpvsENeC0MG3mumrMYSDVl1cSnfemSuivTCJe0VySJ8aA; __cf_bm=Hr2Yhi2o2Zar4M86H2Yl7nm7vUNHk7tsD09YMnYqQLI-1780241299.6080015-1.0.1.1-V2Nsrt_ri3_2D7NbvFliyEceNoUlk07VCP4O67DVN4jmZTzUbYISAA4n9TMDr8ZDS8QYaQERCMJcKsqKyJqfjU8rLHt1.KYA7jpxBm5gE.mjdDmwcetF2wEWY1gp1Tom; media_layout=four-col; cookie_consent=eyJ1dWlkIjoiY2Q4NjJlZmQtOTY3My00OWU1LWE2YmItYzBiYWFlMDc2YzZkIiwidGltZXN0YW1wIjoxNzgwMjQxMzM2NDE1LCJjYXRlZ29yaWVzIjp7ImVzc2VudGlhbCI6dHJ1ZSwiZnVuY3Rpb25hbCI6dHJ1ZSwiYW5hbHl0aWNzIjp0cnVlLCJ0YXJnZXRpbmciOnRydWV9LCJ2ZXJzaW9uIjoidjEuMCIsInVzZXJfaWQiOjB9\n'
 

@@ -229,7 +229,7 @@ function torlookApi(params = {}, oncomplite, onerror) {
 function jackett(params = {}, oncomplite, onerror) {
     network.timeout(1000 * Storage.field('parse_timeout'))
 
-    let proxy = 'https://cr-jgp4.onrender.com/';
+    let proxy = 'https://vi1pr.netlify.app/pr/';
     if (Platform.is('android')) {
         proxy = '';
     }

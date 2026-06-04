@@ -174,7 +174,7 @@ function component(object) {
             network.timeout(1000 * 15)
 
             if (balanser !== 'videocdn') {
-                network.native('https://cr-jgp4.onrender.com/https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=' + encodeURIComponent(query), (json) => {
+                network.native('https://vi1pr.netlify.app/pr/https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=' + encodeURIComponent(query), (json) => {
                     json.data = json.films
 
                     display(json)

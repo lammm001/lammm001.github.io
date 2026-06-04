@@ -2,7 +2,7 @@ function VideoCdn(_component, _params) {
     let component = _component
     let params = _params
     let network = new Lampa.Reguest();
-    let corsProxy = 'https://cr-jgp4.onrender.com/'
+    let corsProxy = 'https://vi1pr.netlify.app/pr/'
 
     let choice = {
         season: 0,
@@ -109,7 +109,7 @@ function VideoCdn(_component, _params) {
     this.search = function (_params, kinopoiskId) {
         origTitle = params.movie.original_title || params.movie.original_name;
 
-        network.silent('https://cr-jgp4.onrender.com/http://videocdn.tv/api/short?api_token=3i40G5TSECmLF77oAqnEgbx61ZWaOYaE&imdb_id=' +
+        network.silent('https://vi1pr.netlify.app/pr/http://videocdn.tv/api/short?api_token=3i40G5TSECmLF77oAqnEgbx61ZWaOYaE&imdb_id=' +
             encodeURIComponent(params.movie.imdb_id), function onComplete(json) {
             try {
                 if (json.data && json.data.length) {
