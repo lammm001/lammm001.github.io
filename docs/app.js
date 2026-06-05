@@ -14597,7 +14597,7 @@
       var oncomplite = arguments.length > 1 ? arguments[1] : undefined;
       var onerror = arguments.length > 2 ? arguments[2] : undefined;
       network$3.timeout(1000 * Storage.field('parse_timeout'));
-      var proxy = 'https://vi1pr.netlify.app/pr/';
+      var proxy = 'https://cr.clash-corwin3.workers.dev/?';
 
       if (Platform.is('android')) {
         proxy = '';

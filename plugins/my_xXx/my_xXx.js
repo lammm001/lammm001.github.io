@@ -32,7 +32,7 @@ import XxxBookmarks from "./xxxBookmarks";
         let sourcesByName = {
             "spankBang": spankBang,
             // "xvideos": xvideos,
-            // "xxamster": xxamster,
+            "xxamster": xxamster,
             "xxxBookmarks": xxxBookmarks
         }
 

@@ -4,7 +4,7 @@ function Original(_component, _params) {
     let component = _component
     let params = _params
     let network = new Lampa.Reguest();
-    let corsProxy = 'https://vi1pr.netlify.app/pr/'
+    let corsProxy = 'https://cr.clash-corwin3.workers.dev/?'
     // let mainDomain = 'https://freemovieswatch.tv'
     let mainDomain = 'https://hdtoday.tv'
     // let mainDomain = 'https://freemovieswatch.cc'
