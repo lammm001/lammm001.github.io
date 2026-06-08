@@ -2,7 +2,7 @@ function Zombie(_component, _params) {
     let component = _component
     let params = _params
     let network = new Lampa.Reguest();
-    let corsProxy = 'https://cr.clash-corwin3.workers.dev/?'
+    let corsProxy = 'https://cr1.lammm.deno.net/'
 
     let choice = {
         season: 0,

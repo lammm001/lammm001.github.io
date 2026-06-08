@@ -14,7 +14,7 @@ import VideoCdn from "./VideoCdn";
         }, _typeof(obj);
     }
 
-    var API = 'https://cr.clash-corwin3.workers.dev/?http://api.lampa.stream/', type = '', cards, ping_auth;
+    var API = 'https://cr1.lammm.deno.net/http://api.lampa.stream/', type = '', cards, ping_auth;
 
     var Modss = {
         init: function () {
@@ -200,7 +200,7 @@ import VideoCdn from "./VideoCdn";
             var params = {
                 movie: card.title,
                 id: card.id,
-                url_kp: "https://cr.clash-corwin3.workers.dev/?http://kinopoiskapiunofficial.tech/",
+                url_kp: "https://cr1.lammm.deno.net/http://kinopoiskapiunofficial.tech/",
                 headers: {
                     'X-API-KEY': '2a4a0808-81a3-40ae-b0d3-e11335ede616'
                 },
@@ -325,7 +325,7 @@ import VideoCdn from "./VideoCdn";
     };
     var Filmix = {
         network: new Lampa.Reguest(),
-        api_url: 'https://cr.clash-corwin3.workers.dev/?http://filmixapp.cyou/api/v2/',
+        api_url: 'https://cr1.lammm.deno.net/http://filmixapp.cyou/api/v2/',
         user_dev: '?user_dev_apk=1.1.6&user_dev_id=' + Lampa.Utils.uid(16) + '&user_dev_name=Xiaomi&user_dev_os=11&user_dev_vendor=Xiaomi&user_dev_token=',
         add_new: function () {
             var user_code = '';
@@ -408,7 +408,7 @@ import VideoCdn from "./VideoCdn";
     function rezka(component, _object) {
         var network = new Lampa.Reguest();
         var extract = {};
-        // var embed1 = 'https://cr.clash-corwin3.workers.dev/?' + 'https://hdrezka.ag/';
+        // var embed1 = 'https://cr1.lammm.deno.net/' + 'https://hdrezka.ag/';
         let host = 'http://hdrezka2vbppy.org';
         var embed = host + '/';
         var object = _object;
@@ -630,7 +630,7 @@ import VideoCdn from "./VideoCdn";
             network.clear();
             network.timeout(10000);
             let url1 = url.replace('https:', 'http:');
-            url1 = url.replace('http://hdrezka0ddqyq.org', 'https://cr.clash-corwin3.workers.dev/?' + 'https://hdrezka.ag/');
+            url1 = url.replace('http://hdrezka0ddqyq.org', 'https://cr1.lammm.deno.net/' + 'https://hdrezka.ag/');
             network.native(url1, function (str) {
                 extractData(str);
                 if (extract.film_id) {
@@ -1196,7 +1196,7 @@ import VideoCdn from "./VideoCdn";
     function SDRezka(component, _object) {
         var network = new Lampa.Reguest();
         var extract = {};
-        var embed = 'https://cr.clash-corwin3.workers.dev/?' + 'https://voidboost.org/';
+        var embed = 'https://cr1.lammm.deno.net/' + 'https://voidboost.org/';
         var object = _object;
         var select_title = '';
         var select_id = '';
@@ -2225,10 +2225,10 @@ function decode(x){
                 var url;
 
                 if (balanser == 'videoapi') {
-                    url = 'https://cr.clash-corwin3.workers.dev/?http://5100.svetacdn.in/api/short';
+                    url = 'https://cr1.lammm.deno.net/http://5100.svetacdn.in/api/short';
                     url = Lampa.Utils.addUrlComponent(url, 'api_token=qR0taraBKvEZULgjoIRj69AJ7O6Pgl9O');
                 } else {
-                    url = 'https://cr.clash-corwin3.workers.dev/?http://videocdn.tv/api/short';
+                    url = 'https://cr1.lammm.deno.net/http://videocdn.tv/api/short';
                     url = Lampa.Utils.addUrlComponent(url, 'api_token=3i40G5TSECmLF77oAqnEgbx61ZWaOYaE');
                 }
 
@@ -2300,7 +2300,7 @@ function decode(x){
             else {
                 network.timeout(1000 * 15);
                 var tmdburl = (object.movie.name ? 'tv' : 'movie') + '/' + object.movie.id + '/external_ids?api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru';
-                var baseurl = typeof Lampa.TMDB !== 'undefined' ? Lampa.TMDB.api(tmdburl) : 'https://cr.clash-corwin3.workers.dev/?http://api.themoviedb.org' + tmdburl;
+                var baseurl = typeof Lampa.TMDB !== 'undefined' ? Lampa.TMDB.api(tmdburl) : 'https://cr1.lammm.deno.net/http://api.themoviedb.org' + tmdburl;
                 network.silent(baseurl, function (ttid) {
                     letgo(ttid.imdb_id);
                 }, pillow.bind(_this2));

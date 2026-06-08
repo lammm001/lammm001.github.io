@@ -5,7 +5,7 @@ function filmix(component, _object) {
     var extract = {};
     var results = [];
     var object = _object;
-    var embed = 'https://cr.clash-corwin3.workers.dev/?http://filmixapp.cyou/api/v2/';
+    var embed = 'https://cr1.lammm.deno.net/http://filmixapp.cyou/api/v2/';
     var select_title = '';
     var filter_items = {};
     var choice = {
@@ -42,7 +42,7 @@ function filmix(component, _object) {
         var orig = object.movie.original_title || object.movie.original_name;
         var clean_title = component.cleanTitle(select_title).replace(/\b(\d\d\d\d+)\b/g, '+$1');
         if (search_year) clean_title = clean_title.replace(new RegExp(' \\+(' + search_year + ')$'), ' $1');
-        var url = 'https://cr.clash-corwin3.workers.dev/?https://filmix.tech/api/v2/suggestions';
+        var url = 'https://cr1.lammm.deno.net/https://filmix.tech/api/v2/suggestions';
         url = Lampa.Utils.addUrlComponent(url, 'search_word=' + encodeURIComponent(clean_title));
         network.clear();
         network.timeout(15000);

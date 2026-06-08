@@ -2,7 +2,7 @@ function xXamster(component) {
     var network = new Lampa.Reguest();
     // let proxy = ''
     // let proxy = 'https://cors.fx666.workers.dev/'
-    let proxy = 'https://cr.clash-corwin3.workers.dev/?'
+    let proxy = 'https://cr1.lammm.deno.net/'
     const baseUrl = proxy + 'https://ru.xhamster.com';
 
     let durationMapping = {
@@ -134,7 +134,7 @@ function xXamster(component) {
         const item = {};
         item.name = element.querySelector("a.video-thumb-info__name")?.getAttribute('title')
         item.picture = element.querySelector("img.thumb-image-container__image")?.getAttribute('src')
-        // item.picture = 'https://cr.clash-corwin3.workers.dev/?' + element.querySelector("img.thumb-image-container__image")?.getAttribute('src')
+        // item.picture = 'https://cr1.lammm.deno.net/' + element.querySelector("img.thumb-image-container__image")?.getAttribute('src')
         let href = element.querySelector("a.thumb-image-container").href;
         if (href.startsWith('http')) {
             href = href.replace(/^.*\/\/[^\/]+/, '')

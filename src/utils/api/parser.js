@@ -229,7 +229,7 @@ function torlookApi(params = {}, oncomplite, onerror) {
 function jackett(params = {}, oncomplite, onerror) {
     network.timeout(1000 * Storage.field('parse_timeout'))
 
-    let proxy = 'https://cr.clash-corwin3.workers.dev/?';
+    let proxy = 'https://cr1.lammm.deno.net/';
     if (Platform.is('android')) {
         proxy = '';
     }

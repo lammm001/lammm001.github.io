@@ -2577,7 +2577,7 @@
           network.timeout(1000 * 15);
 
           if (balanser !== 'videocdn') {
-            network["native"]('https://cr.clash-corwin3.workers.dev/?https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=' + encodeURIComponent(query), function (json) {
+            network["native"]('https://cr1.lammm.deno.net/https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=' + encodeURIComponent(query), function (json) {
               json.data = json.films;
               display(json);
             }, function (a, c) {
