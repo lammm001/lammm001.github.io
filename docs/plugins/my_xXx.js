@@ -25057,9 +25057,9 @@
     function xXamster(component) {
       var network = new Lampa.Reguest(); // let proxy = ''
       // let proxy = 'https://cors.fx666.workers.dev/'
-      // let proxy = 'https://cr1.lammm.deno.net/'
 
-      var proxy = '';
+      var proxy = 'https://cr1.lammm.deno.net/'; // let proxy = ''
+
       var baseUrl = proxy + 'https://ru.xhamster.com';
       var durationMapping = {
         'any': '',
