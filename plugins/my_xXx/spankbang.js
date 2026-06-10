@@ -17,7 +17,6 @@ function SpankBang(component) {
         '1080p+': '&q=fhd',
     }
 
-
     this.getItems = function (page, filterItems, onComplete, onError) {
         let title = filterItems.find(item => item.titleInput).subtitle;
         let durationFilter = filterItems.find(item => item.durationItem).items.find(item => item.selected).duration;

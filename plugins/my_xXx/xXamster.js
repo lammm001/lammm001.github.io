@@ -2,7 +2,8 @@ function xXamster(component) {
     var network = new Lampa.Reguest();
     // let proxy = ''
     // let proxy = 'https://cors.fx666.workers.dev/'
-    let proxy = 'https://cr1.lammm.deno.net/'
+    // let proxy = 'https://cr1.lammm.deno.net/'
+    let proxy = ''
     const baseUrl = proxy + 'https://ru.xhamster.com';
 
     let durationMapping = {
@@ -15,23 +16,16 @@ function xXamster(component) {
         '720p+': '&quality=720p',
         '1080p+': '&quality=1080p',
     }
-
     this.loadItemDetails = function (item, onComplete, onError) {
         network.silent(proxy + item.detailsUrl, (respData) => {
-            let match = respData.match(/"url":".{20,400}?\.m3u8.{0,300}?"/g);
+            let match = respData.match(/<link rel="preload" href="(.{10,400}?\.m3u8)"/);
             if (!match) {
                 Lampa.Noty.show('Video not found');
                 onError()
                 return
             }
-            let filter = match.filter(itm => !itm.includes('video-b.xhcdn.com'));
-            if (!filter.length) {
-                onError()
-                Lampa.Noty.show('Video URL not found');
-                return
-            }
             item.qualities = {};
-            let hlsDetailsUrl = JSON.parse('{' + filter[0] + '}').url;
+            let hlsDetailsUrl = match[1];
 
             item.url = hlsDetailsUrl
 
@@ -79,20 +73,18 @@ function xXamster(component) {
             try {
                 let respDataFixed = respData.replace(/\n/g, '')
                 let match = respDataFixed.match(
-                    /(<div class="thumb-list.*)?<\/div>[ ]*?<\/div>[ ]*?<.{0,50}?pager-section/);
+                    /window\.initials=(.*?);<\/script>/);
 
                 if (match) {
-                    var rootDiv = document.createElement("div");
-                    rootDiv.innerHTML = match[1];
-                    let videoElements = rootDiv.querySelectorAll("div.thumb-list > div.video-thumb--type-video")
-                    videoElements.forEach(function (element) {
+                    let initialsJson = JSON.parse(match[1]);
+
+                    initialsJson.searchResult.videoThumbProps.forEach(function (element) {
                         let item = buildItem(element);
                         if ((qualityFilter === 'any' || item.quality && extractNumber(item.quality) >= extractNumber(qualityFilter))
                             && (durationFilter === 'any' || item.time && extractNumber(item.time) >= extractNumber(durationFilter))) {
                             resultItems.push(item);
                         }
                     });
-                    rootDiv.remove()
                 } else {
                     if (!respDataFixed.includes('Sorry, no video found for this query')) {
                         console.log('xxx', "xHamster: Error parsing video list: no match");
@@ -132,24 +124,23 @@ function xXamster(component) {
 
     function buildItem(element) {
         const item = {};
-        item.name = element.querySelector("a.video-thumb-info__name")?.getAttribute('title')
-        item.picture = element.querySelector("img.thumb-image-container__image")?.getAttribute('src')
+        item.name = element.title
+        item.picture = proxy + element.thumbURL
         // item.picture = 'https://cr1.lammm.deno.net/' + element.querySelector("img.thumb-image-container__image")?.getAttribute('src')
-        let href = element.querySelector("a.thumb-image-container").href;
-        if (href.startsWith('http')) {
-            href = href.replace(/^.*\/\/[^\/]+/, '')
-        }
-        item.detailsUrl = baseUrl + '/' + href
 
-        let timeAsText = element.querySelector("div[data-role=\"video-duration\"]")?.textContent;
-        if (timeAsText) {
-            let match = timeAsText.trim().match(/(^|:)(\d{2}):/);
-            if (match) {
-                item.time = parseInt(match[2]) + 'm'
-            }
-        }
-        let qualityTxt = element.querySelector(".thumb-image-container__duration > i")?.getAttribute('class');
-        item.quality = qualityTxt?.includes("--uhd") ? '2160p' : "1080p"
+        // let href = element.pageURL;
+
+        // if (href.startsWith('http')) {
+        //     href = href.replace(/^.*\/\/[^\/]+/, '')
+        // }
+        // item.detailsUrl = baseUrl + '/' + href
+        item.detailsUrl = element.pageURL;
+
+        item.time = parseInt(element.duration / 60) + 'm'
+
+        // let qualityTxt = element.querySelector(".thumb-image-container__duration > i")?.getAttribute('class');
+        // item.quality = qualityTxt?.includes("--uhd") ? '2160p' : "1080p"
+        item.quality = "1080p"
         item.sourceName = 'xxamster';
         return item;
     }
