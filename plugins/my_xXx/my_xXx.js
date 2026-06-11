@@ -30,9 +30,9 @@ import XxxBookmarks from "./xxxBookmarks";
         let xxamster = new xXamster(_thisComponent);
         let xxxBookmarks = new XxxBookmarks(_thisComponent);
         let sourcesByName = {
-            "spankBang": spankBang,
-            // "xvideos": xvideos,
-            // "xxamster": xxamster,
+            // "spankBang": spankBang,
+            "xvideos": xvideos,
+            "xxamster": xxamster,
             "xxxBookmarks": xxxBookmarks
         }
 

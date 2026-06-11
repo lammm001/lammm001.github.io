@@ -80,14 +80,14 @@ function SpankBang(component) {
         }, false, {
             dataType: 'text',
             headers: {
-                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                // 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
                 // 'sec-ch-ua-mobile': '?1',
-                'Host': 'spankbang.com',
-                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
-                'Accept-Language': 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7,en-RU;q=0.6,de-DE;q=0.5,de;q=0.4',
-                'Accept-Encoding': 'gzip, deflate, br, zstd',
-                'Alt-Used': 'spankbang.com',
-                'TE': 'trailers',
+                // 'Host': 'spankbang.com',
+                // 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
+                // 'Accept-Language': 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7,en-RU;q=0.6,de-DE;q=0.5,de;q=0.4',
+                // 'Accept-Encoding': 'gzip, deflate, br, zstd',
+                // 'Alt-Used': 'spankbang.com',
+                // 'TE': 'trailers',
                 'User-Agent': 'PostmanRuntime/7.54.0',
                 'Cookie': cookie
             }

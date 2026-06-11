@@ -197,6 +197,271 @@
       }
     }
 
+    function SpankBang(component) {
+      var network = new Lampa.Reguest();
+      var proxy = ''; // let proxy = 'https://cr1.lammm.deno.net/'
+
+      var baseUrl = proxy + 'https://spankbang.com';
+      var cookie = 'coe=ww; cookie_consent_required=1; show_cookie_consent_modal=1; age_pass=1; coc=PL; cor=Unknown; cfc_ok=00|2|ww|spankbang|master|0; av=simple:False:True; backend_version=main; _cfuvid=JQkhuxq5tUhWAr7SYBWKt287axcY00PKgwRwKE6S4P4-1780241291.6168897-1.0.1.1-hupyIZk_UUFjyAYSm0PJmKhy6btmP7iHigB.v0Xe2d0; sb_session=eyJfcGVybWFuZW50Ijp0cnVlLCJ1c2VyIjp7ImlkIjowfX0.ahxTjQ.Y83sNaldPrkAKvSr719jGVz1wcM; ana_vid=40e3da24135c8aa1951fb0101e27d0114fa33d862a85f7ead242a7b91380163e; ana_sid=40e3da24135c8aa1951fb0101e27d0114fa33d862a85f7ead242a7b91380163e; cf_clearance=_zDLdwOxuWpuMUu5Jtqo6L7yv3fUun6nrfURfN_u.T4-1780241299-1.2.1.1-SjMXkaP5Y6_Zlf4YWZukqzez2dfFtFk2aN8Yrlm1iaEF7n0Vuh4NrSaq7DNS2ZhSSub45VYHRBb.._0.AoVMoywJvswa4XnIk0VHpxoSk1iS7_fDfoijvHtt9vP5MRhaVWqT5RxqqKddE5RaoEECRMf.9ae1Wy15Q9SMijLTKtxcmkCK0O87AU4GbrRhh9tIlbaBtIQ.xlEcdz.DsXyH3fN4BqvYX0YAD_CA5uqUZOrkGxkgKjTXzfcOLyO1wURxDuuLTZuhIV2RjI55LJN9hrKuBvgLvuZkr9OlyYtMeMpvsENeC0MG3mumrMYSDVl1cSnfemSuivTCJe0VySJ8aA; __cf_bm=Hr2Yhi2o2Zar4M86H2Yl7nm7vUNHk7tsD09YMnYqQLI-1780241299.6080015-1.0.1.1-V2Nsrt_ri3_2D7NbvFliyEceNoUlk07VCP4O67DVN4jmZTzUbYISAA4n9TMDr8ZDS8QYaQERCMJcKsqKyJqfjU8rLHt1.KYA7jpxBm5gE.mjdDmwcetF2wEWY1gp1Tom; media_layout=four-col; cookie_consent=eyJ1dWlkIjoiY2Q4NjJlZmQtOTY3My00OWU1LWE2YmItYzBiYWFlMDc2YzZkIiwidGltZXN0YW1wIjoxNzgwMjQxMzM2NDE1LCJjYXRlZ29yaWVzIjp7ImVzc2VudGlhbCI6dHJ1ZSwiZnVuY3Rpb25hbCI6dHJ1ZSwiYW5hbHl0aWNzIjp0cnVlLCJ0YXJnZXRpbmciOnRydWV9LCJ2ZXJzaW9uIjoidjEuMCIsInVzZXJfaWQiOjB9\n';
+      var durationMapping = {
+        'any': '',
+        '10+ min': '&d=10',
+        '20+ min': '&d=20'
+      };
+      var qualityMapping = {
+        'any': '',
+        '720p+': '&q=hd',
+        '1080p+': '&q=fhd'
+      };
+
+      this.getItems = function (page, filterItems, onComplete, onError) {
+        var title = filterItems.find(function (item) {
+          return item.titleInput;
+        }).subtitle;
+        var durationFilter = filterItems.find(function (item) {
+          return item.durationItem;
+        }).items.find(function (item) {
+          return item.selected;
+        }).duration;
+        var qualityFilter = filterItems.find(function (item) {
+          return item.qualityItem;
+        }).items.find(function (item) {
+          return item.selected;
+        }).quality;
+        var url = baseUrl;
+
+        if (title) {
+          url += '/s/' + encodeURIComponent(title);
+        } else {
+          url += '/ci/channel/nubile+films';
+        }
+
+        url += '/' + page;
+        url += '/?o=all' + durationMapping[durationFilter] + qualityMapping[qualityFilter]; // 'https://cors.nb557.workers.dev:8443/'+
+
+        network["native"](url, function (respData) {
+          // network.native(url, (respData) => {
+          var resultItems = [];
+
+          try {
+            var respDataFixed = respData.replace(/\n/g, '');
+            var parser = new DOMParser();
+            var htmlDoc = parser.parseFromString(respData, 'text/html');
+            var videoElements = htmlDoc.querySelectorAll('[data-testid="main"] [x-data="videoList"] div[data-id]'); // let match = respDataFixed.match(/<div class="results results_search">(<div class="video-list.*)<.* class="paginat/);
+            // if (!match) {
+            //     match = respDataFixed.match(/p>(<div class="video-list.*)<div class="pagination"/);
+            // }
+
+            if (videoElements.length) {
+              // var rootDiv = document.createElement("div");
+              // rootDiv.innerHTML = match[1];
+              // let videoElements = rootDiv.querySelectorAll("div[data-id][id]")
+              videoElements.forEach(function (element) {
+                var item = buildItem(element);
+                var itemQuality = item.quality;
+
+                if (itemQuality === 'HD') {
+                  itemQuality = '1080p';
+                } else if (itemQuality === '4K') {
+                  itemQuality = '2160p';
+                }
+
+                if ((qualityFilter === 'any' || itemQuality && extractNumber(itemQuality) >= extractNumber(qualityFilter)) && (durationFilter === 'any' || item.time && extractNumber(item.time) >= extractNumber(durationFilter))) {
+                  resultItems.push(item);
+                }
+              }); // rootDiv.remove()
+            } else {
+              if (!respDataFixed.includes('<div id="search_empty">')) {
+                console.log('xxx', "Spank: Error parsing video list: no match");
+                Lampa.Noty.show('Spank: Error parsing video list'); // onError();
+              }
+            }
+          } catch (e) {
+            console.log('xxx', "Spank: Error parsing video list: " + e);
+            Lampa.Noty.show('Spank: Error parsing video list'); // onError();
+          }
+
+          onComplete(resultItems);
+        }, function (a, c) {
+          console.log('xxx', "Error loading video list: " + network.errorDecode(a, c));
+          Lampa.Noty.show('Error loading video list');
+          onComplete([]);
+        }, false, {
+          dataType: 'text',
+          headers: {
+            // 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+            // 'sec-ch-ua-mobile': '?1',
+            // 'Host': 'spankbang.com',
+            // 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
+            // 'Accept-Language': 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7,en-RU;q=0.6,de-DE;q=0.5,de;q=0.4',
+            // 'Accept-Encoding': 'gzip, deflate, br, zstd',
+            // 'Alt-Used': 'spankbang.com',
+            // 'TE': 'trailers',
+            'User-Agent': 'PostmanRuntime/7.54.0',
+            'Cookie': cookie
+          }
+        });
+      };
+
+      this.loadItemDetails = function (item, onComplete, onError) {
+        network["native"](item.detailsUrl, function (respData) {
+          try {
+            var match = respData.replace(/\n/g, '').match(/var stream_data = (.*);\n?.*var live_keywords/);
+            var dataJson = JSON.parse(match[1].replace(/'/g, '"'));
+            item.qualities = {};
+            var p320 = dataJson['320p'];
+
+            if (p320 && p320[0]) {
+              item.qualities['320p'] = p320[0];
+            }
+
+            var p480 = dataJson['480p'];
+
+            if (p480 && p480[0]) {
+              item.qualities['480p'] = p480[0];
+            }
+
+            var p720 = dataJson['720p'];
+
+            if (p720 && p720[0]) {
+              item.qualities['720p'] = p720[0];
+            }
+
+            var p1080 = dataJson['1080p'];
+
+            if (p1080 && p1080[0]) {
+              item.qualities['1080p'] = p1080[0];
+            }
+
+            var p2160 = dataJson['4k'];
+
+            if (p2160 && p2160[0]) {
+              item.qualities['2160p'] = p2160[0];
+            }
+
+            var preferably = Lampa.Storage.get('video_quality_default');
+
+            if (preferably && item.qualities[preferably + 'p']) {
+              item.url = item.qualities[preferably + 'p'];
+            } else {
+              item.url = item.qualities[Object.keys(item.qualities)[Object.keys(item.qualities).length - 1]];
+            }
+
+            onComplete(item);
+          } catch (e) {
+            console.log('xxx', "Error parsing videoDetails: " + e);
+            Lampa.Noty.show('Error parsing videoDetails');
+            onError();
+          }
+        }, function (a, c) {
+          component.empty(network.errorDecode(a, c));
+          console.log('xxx', "Error loading videoDetails: " + network.errorDecode(a, c));
+          Lampa.Noty.show('Error loading videoDetails');
+          onError();
+        }, false, {
+          dataType: 'text',
+          headers: {
+            'User-Agent': 'PostmanRuntime/7.54.0' // 'my_Referer': 'https://spankbang.com',
+            // 'my_Cookie': cookie
+
+          }
+        });
+      };
+
+      function extractNumber(string) {
+        var thenum = string.replace(/^\D+/g, '');
+        return parseInt(thenum);
+      }
+
+      function buildItem(element) {
+        var _element$querySelecto, _element$querySelecto2;
+
+        var item = {};
+        item.name = element.querySelector('a > picture > img').getAttribute('alt');
+        item.picture = proxy + ((_element$querySelecto = element.querySelector('a > picture > img')) === null || _element$querySelecto === void 0 ? void 0 : _element$querySelecto.getAttribute('src'));
+        item.time = (_element$querySelecto2 = element.querySelector('div[data-testid="video-item-length"]')) === null || _element$querySelecto2 === void 0 ? void 0 : _element$querySelecto2.textContent; // item.quality = element.querySelector('a[x-data="videoItem"] .left-2')?.textContent
+
+        item.quality = "1080p";
+        var href = element.querySelector('a').href;
+
+        if (href.startsWith('http')) {
+          href = href.replace(/^.*\/\/[^\/]+/, '');
+        }
+
+        var detailsUrl = baseUrl + '/' + href;
+        item.detailsUrl = detailsUrl;
+        item.sourceName = 'spankBang';
+        return item;
+      }
+    }
+
+    function subscribe() {
+      this.add = function (type, listener) {
+        if (this._listeners === undefined) this._listeners = {};
+        var listeners = this._listeners;
+
+        if (listeners[type] === undefined) {
+          listeners[type] = [];
+        }
+
+        if (listeners[type].indexOf(listener) === -1) {
+          listeners[type].push(listener);
+        }
+      };
+
+      this.follow = function (type, listener) {
+        var _this = this;
+
+        type.split(',').forEach(function (name) {
+          _this.add(name, listener);
+        });
+      };
+
+      this.has = function (type, listener) {
+        if (this._listeners === undefined) return false;
+        var listeners = this._listeners;
+        return listeners[type] !== undefined && listeners[type].indexOf(listener) !== -1;
+      };
+
+      this.remove = function (type, listener) {
+        if (this._listeners === undefined) return;
+        var listeners = this._listeners;
+        var listenerArray = listeners[type];
+
+        if (listenerArray !== undefined) {
+          var index = listenerArray.indexOf(listener);
+
+          if (index !== -1) {
+            listenerArray.splice(index, 1);
+          }
+        }
+      };
+
+      this.send = function (type) {
+        var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+        if (this._listeners === undefined) return;
+        var listeners = this._listeners;
+        var listenerArray = listeners[type];
+
+        if (listenerArray !== undefined) {
+          event.target = this;
+          var array = listenerArray.slice(0);
+
+          for (var i = 0, l = array.length; i < l; i++) {
+            array[i].call(this, event);
+          }
+        }
+      };
+
+      this.destroy = function () {
+        this._listeners = null;
+      };
+    }
+
+    function start$4() {
+      return new subscribe();
+    }
+
     function ownKeys(object, enumerableOnly) {
       var keys = Object.keys(object);
 
@@ -413,271 +678,6 @@
 
     function _nonIterableRest() {
       throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-    }
-
-    function SpankBang(component) {
-      var network = new Lampa.Reguest();
-      var proxy = ''; // let proxy = 'https://cr1.lammm.deno.net/'
-
-      var baseUrl = proxy + 'https://spankbang.com';
-      var cookie = 'coe=ww; cookie_consent_required=1; show_cookie_consent_modal=1; age_pass=1; coc=PL; cor=Unknown; cfc_ok=00|2|ww|spankbang|master|0; av=simple:False:True; backend_version=main; _cfuvid=JQkhuxq5tUhWAr7SYBWKt287axcY00PKgwRwKE6S4P4-1780241291.6168897-1.0.1.1-hupyIZk_UUFjyAYSm0PJmKhy6btmP7iHigB.v0Xe2d0; sb_session=eyJfcGVybWFuZW50Ijp0cnVlLCJ1c2VyIjp7ImlkIjowfX0.ahxTjQ.Y83sNaldPrkAKvSr719jGVz1wcM; ana_vid=40e3da24135c8aa1951fb0101e27d0114fa33d862a85f7ead242a7b91380163e; ana_sid=40e3da24135c8aa1951fb0101e27d0114fa33d862a85f7ead242a7b91380163e; cf_clearance=_zDLdwOxuWpuMUu5Jtqo6L7yv3fUun6nrfURfN_u.T4-1780241299-1.2.1.1-SjMXkaP5Y6_Zlf4YWZukqzez2dfFtFk2aN8Yrlm1iaEF7n0Vuh4NrSaq7DNS2ZhSSub45VYHRBb.._0.AoVMoywJvswa4XnIk0VHpxoSk1iS7_fDfoijvHtt9vP5MRhaVWqT5RxqqKddE5RaoEECRMf.9ae1Wy15Q9SMijLTKtxcmkCK0O87AU4GbrRhh9tIlbaBtIQ.xlEcdz.DsXyH3fN4BqvYX0YAD_CA5uqUZOrkGxkgKjTXzfcOLyO1wURxDuuLTZuhIV2RjI55LJN9hrKuBvgLvuZkr9OlyYtMeMpvsENeC0MG3mumrMYSDVl1cSnfemSuivTCJe0VySJ8aA; __cf_bm=Hr2Yhi2o2Zar4M86H2Yl7nm7vUNHk7tsD09YMnYqQLI-1780241299.6080015-1.0.1.1-V2Nsrt_ri3_2D7NbvFliyEceNoUlk07VCP4O67DVN4jmZTzUbYISAA4n9TMDr8ZDS8QYaQERCMJcKsqKyJqfjU8rLHt1.KYA7jpxBm5gE.mjdDmwcetF2wEWY1gp1Tom; media_layout=four-col; cookie_consent=eyJ1dWlkIjoiY2Q4NjJlZmQtOTY3My00OWU1LWE2YmItYzBiYWFlMDc2YzZkIiwidGltZXN0YW1wIjoxNzgwMjQxMzM2NDE1LCJjYXRlZ29yaWVzIjp7ImVzc2VudGlhbCI6dHJ1ZSwiZnVuY3Rpb25hbCI6dHJ1ZSwiYW5hbHl0aWNzIjp0cnVlLCJ0YXJnZXRpbmciOnRydWV9LCJ2ZXJzaW9uIjoidjEuMCIsInVzZXJfaWQiOjB9\n';
-      var durationMapping = {
-        'any': '',
-        '10+ min': '&d=10',
-        '20+ min': '&d=20'
-      };
-      var qualityMapping = {
-        'any': '',
-        '720p+': '&q=hd',
-        '1080p+': '&q=fhd'
-      };
-
-      this.getItems = function (page, filterItems, onComplete, onError) {
-        var _headers;
-
-        var title = filterItems.find(function (item) {
-          return item.titleInput;
-        }).subtitle;
-        var durationFilter = filterItems.find(function (item) {
-          return item.durationItem;
-        }).items.find(function (item) {
-          return item.selected;
-        }).duration;
-        var qualityFilter = filterItems.find(function (item) {
-          return item.qualityItem;
-        }).items.find(function (item) {
-          return item.selected;
-        }).quality;
-        var url = baseUrl;
-
-        if (title) {
-          url += '/s/' + encodeURIComponent(title);
-        } else {
-          url += '/ci/channel/nubile+films';
-        }
-
-        url += '/' + page;
-        url += '/?o=all' + durationMapping[durationFilter] + qualityMapping[qualityFilter]; // 'https://cors.nb557.workers.dev:8443/'+
-
-        network["native"](url, function (respData) {
-          // network.native(url, (respData) => {
-          var resultItems = [];
-
-          try {
-            var respDataFixed = respData.replace(/\n/g, '');
-            var parser = new DOMParser();
-            var htmlDoc = parser.parseFromString(respData, 'text/html');
-            var videoElements = htmlDoc.querySelectorAll('[data-testid="main"] [x-data="videoList"] div[data-id]'); // let match = respDataFixed.match(/<div class="results results_search">(<div class="video-list.*)<.* class="paginat/);
-            // if (!match) {
-            //     match = respDataFixed.match(/p>(<div class="video-list.*)<div class="pagination"/);
-            // }
-
-            if (videoElements.length) {
-              // var rootDiv = document.createElement("div");
-              // rootDiv.innerHTML = match[1];
-              // let videoElements = rootDiv.querySelectorAll("div[data-id][id]")
-              videoElements.forEach(function (element) {
-                var item = buildItem(element);
-                var itemQuality = item.quality;
-
-                if (itemQuality === 'HD') {
-                  itemQuality = '1080p';
-                } else if (itemQuality === '4K') {
-                  itemQuality = '2160p';
-                }
-
-                if ((qualityFilter === 'any' || itemQuality && extractNumber(itemQuality) >= extractNumber(qualityFilter)) && (durationFilter === 'any' || item.time && extractNumber(item.time) >= extractNumber(durationFilter))) {
-                  resultItems.push(item);
-                }
-              }); // rootDiv.remove()
-            } else {
-              if (!respDataFixed.includes('<div id="search_empty">')) {
-                console.log('xxx', "Spank: Error parsing video list: no match");
-                Lampa.Noty.show('Spank: Error parsing video list'); // onError();
-              }
-            }
-          } catch (e) {
-            console.log('xxx', "Spank: Error parsing video list: " + e);
-            Lampa.Noty.show('Spank: Error parsing video list'); // onError();
-          }
-
-          onComplete(resultItems);
-        }, function (a, c) {
-          console.log('xxx', "Error loading video list: " + network.errorDecode(a, c));
-          Lampa.Noty.show('Error loading video list');
-          onComplete([]);
-        }, false, {
-          dataType: 'text',
-          headers: (_headers = {
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-            // 'sec-ch-ua-mobile': '?1',
-            'Host': 'spankbang.com',
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
-            'Accept-Language': 'en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7,en-RU;q=0.6,de-DE;q=0.5,de;q=0.4',
-            'Accept-Encoding': 'gzip, deflate, br, zstd',
-            'Alt-Used': 'spankbang.com',
-            'TE': 'trailers'
-          }, _defineProperty(_headers, "User-Agent", 'PostmanRuntime/7.54.0'), _defineProperty(_headers, 'Cookie', cookie), _headers)
-        });
-      };
-
-      this.loadItemDetails = function (item, onComplete, onError) {
-        network["native"](item.detailsUrl, function (respData) {
-          try {
-            var match = respData.replace(/\n/g, '').match(/var stream_data = (.*);\n?.*var live_keywords/);
-            var dataJson = JSON.parse(match[1].replace(/'/g, '"'));
-            item.qualities = {};
-            var p320 = dataJson['320p'];
-
-            if (p320 && p320[0]) {
-              item.qualities['320p'] = p320[0];
-            }
-
-            var p480 = dataJson['480p'];
-
-            if (p480 && p480[0]) {
-              item.qualities['480p'] = p480[0];
-            }
-
-            var p720 = dataJson['720p'];
-
-            if (p720 && p720[0]) {
-              item.qualities['720p'] = p720[0];
-            }
-
-            var p1080 = dataJson['1080p'];
-
-            if (p1080 && p1080[0]) {
-              item.qualities['1080p'] = p1080[0];
-            }
-
-            var p2160 = dataJson['4k'];
-
-            if (p2160 && p2160[0]) {
-              item.qualities['2160p'] = p2160[0];
-            }
-
-            var preferably = Lampa.Storage.get('video_quality_default');
-
-            if (preferably && item.qualities[preferably + 'p']) {
-              item.url = item.qualities[preferably + 'p'];
-            } else {
-              item.url = item.qualities[Object.keys(item.qualities)[Object.keys(item.qualities).length - 1]];
-            }
-
-            onComplete(item);
-          } catch (e) {
-            console.log('xxx', "Error parsing videoDetails: " + e);
-            Lampa.Noty.show('Error parsing videoDetails');
-            onError();
-          }
-        }, function (a, c) {
-          component.empty(network.errorDecode(a, c));
-          console.log('xxx', "Error loading videoDetails: " + network.errorDecode(a, c));
-          Lampa.Noty.show('Error loading videoDetails');
-          onError();
-        }, false, {
-          dataType: 'text',
-          headers: {
-            'User-Agent': 'PostmanRuntime/7.54.0' // 'my_Referer': 'https://spankbang.com',
-            // 'my_Cookie': cookie
-
-          }
-        });
-      };
-
-      function extractNumber(string) {
-        var thenum = string.replace(/^\D+/g, '');
-        return parseInt(thenum);
-      }
-
-      function buildItem(element) {
-        var _element$querySelecto, _element$querySelecto2;
-
-        var item = {};
-        item.name = element.querySelector('a > picture > img').getAttribute('alt');
-        item.picture = proxy + ((_element$querySelecto = element.querySelector('a > picture > img')) === null || _element$querySelecto === void 0 ? void 0 : _element$querySelecto.getAttribute('src'));
-        item.time = (_element$querySelecto2 = element.querySelector('div[data-testid="video-item-length"]')) === null || _element$querySelecto2 === void 0 ? void 0 : _element$querySelecto2.textContent; // item.quality = element.querySelector('a[x-data="videoItem"] .left-2')?.textContent
-
-        item.quality = "1080p";
-        var href = element.querySelector('a').href;
-
-        if (href.startsWith('http')) {
-          href = href.replace(/^.*\/\/[^\/]+/, '');
-        }
-
-        var detailsUrl = baseUrl + '/' + href;
-        item.detailsUrl = detailsUrl;
-        item.sourceName = 'spankBang';
-        return item;
-      }
-    }
-
-    function subscribe() {
-      this.add = function (type, listener) {
-        if (this._listeners === undefined) this._listeners = {};
-        var listeners = this._listeners;
-
-        if (listeners[type] === undefined) {
-          listeners[type] = [];
-        }
-
-        if (listeners[type].indexOf(listener) === -1) {
-          listeners[type].push(listener);
-        }
-      };
-
-      this.follow = function (type, listener) {
-        var _this = this;
-
-        type.split(',').forEach(function (name) {
-          _this.add(name, listener);
-        });
-      };
-
-      this.has = function (type, listener) {
-        if (this._listeners === undefined) return false;
-        var listeners = this._listeners;
-        return listeners[type] !== undefined && listeners[type].indexOf(listener) !== -1;
-      };
-
-      this.remove = function (type, listener) {
-        if (this._listeners === undefined) return;
-        var listeners = this._listeners;
-        var listenerArray = listeners[type];
-
-        if (listenerArray !== undefined) {
-          var index = listenerArray.indexOf(listener);
-
-          if (index !== -1) {
-            listenerArray.splice(index, 1);
-          }
-        }
-      };
-
-      this.send = function (type) {
-        var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-        if (this._listeners === undefined) return;
-        var listeners = this._listeners;
-        var listenerArray = listeners[type];
-
-        if (listenerArray !== undefined) {
-          event.target = this;
-          var array = listenerArray.slice(0);
-
-          for (var i = 0, l = array.length; i < l; i++) {
-            array[i].call(this, event);
-          }
-        }
-      };
-
-      this.destroy = function () {
-        this._listeners = null;
-      };
-    }
-
-    function start$4() {
-      return new subscribe();
     }
 
     function toObject(a) {
@@ -25236,14 +25236,14 @@
         var globalSearchElement = $('.open--search');
         var filterItems; // let filter = this.buildXxxFilter();
 
-        var spankBang = new SpankBang(_thisComponent);
-        new Xvideos(_thisComponent);
-        new xXamster(_thisComponent);
+        new SpankBang(_thisComponent);
+        var xvideos = new Xvideos(_thisComponent);
+        var xxamster = new xXamster(_thisComponent);
         var xxxBookmarks = new XxxBookmarks(_thisComponent);
         var sourcesByName = {
-          "spankBang": spankBang,
-          // "xvideos": xvideos,
-          // "xxamster": xxamster,
+          // "spankBang": spankBang,
+          "xvideos": xvideos,
+          "xxamster": xxamster,
           "xxxBookmarks": xxxBookmarks
         };
 
