@@ -160,16 +160,16 @@ function Xvideos(component) {
 
     function buildItem(element) {
         const item = {};
-        item.name = element.querySelector(".thumb-under > p.title > a , .video-under .video-title a")?.childNodes[0].nodeValue
-        item.picture = proxy + element.querySelector(".thumb-inside a > img[data-videoid] , .video-thumb a img")?.getAttribute('data-src')
+        item.name = element.querySelector(".thumb-under > p.title > a , .thumb-under .title a").textContent
+        item.picture = element.querySelector(".thumb-inside a > img[data-videoid] , .thumb a img")?.getAttribute('data-src')
         let href = element.querySelector(".thumb-inside a , a.thumb-link").href;
         if (href.startsWith('http')) {
             href = href.replace(/^.*\/\/[^\/]+/, '')
         }
-        item.detailsUrl = baseUrl + '/' + href
+        item.detailsUrl = baseUrl + href
 
-        item.time = element.querySelector(".thumb-under > p.metadata span.duration, .video-under .video-metadata span.duration")?.textContent
-        item.quality = element.querySelector(".thumb-inside a > span, .video-hd-mark")?.textContent
+        item.time = element.querySelector(".thumb-under > p.metadata span.duration , .thumb-under .video-metadata span.duration")?.textContent
+        item.quality = element.querySelector(".thumb-inside a > span , .video-hd-mark")?.textContent
 
         item.sourceName = 'xvideos';
         return item;

@@ -125,7 +125,7 @@ function xXamster(component) {
     function buildItem(element) {
         const item = {};
         item.name = element.title
-        item.picture = proxy + element.thumbURL
+        item.picture = element.thumbURL
         // item.picture = 'https://cr1.lammm.deno.net/' + element.querySelector("img.thumb-image-container__image")?.getAttribute('src')
 
         // let href = element.pageURL;
