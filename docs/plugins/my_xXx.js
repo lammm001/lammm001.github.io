@@ -202,7 +202,8 @@
       var proxy = ''; // let proxy = 'https://cr1.lammm.deno.net/'
 
       var baseUrl = proxy + 'https://spankbang.com';
-      var cookie = 'coe=ww; cookie_consent_required=1; show_cookie_consent_modal=1; age_pass=1; coc=PL; cor=Unknown; cfc_ok=00|2|ww|spankbang|master|0; av=simple:False:True; backend_version=main; _cfuvid=JQkhuxq5tUhWAr7SYBWKt287axcY00PKgwRwKE6S4P4-1780241291.6168897-1.0.1.1-hupyIZk_UUFjyAYSm0PJmKhy6btmP7iHigB.v0Xe2d0; sb_session=eyJfcGVybWFuZW50Ijp0cnVlLCJ1c2VyIjp7ImlkIjowfX0.ahxTjQ.Y83sNaldPrkAKvSr719jGVz1wcM; ana_vid=40e3da24135c8aa1951fb0101e27d0114fa33d862a85f7ead242a7b91380163e; ana_sid=40e3da24135c8aa1951fb0101e27d0114fa33d862a85f7ead242a7b91380163e; cf_clearance=_zDLdwOxuWpuMUu5Jtqo6L7yv3fUun6nrfURfN_u.T4-1780241299-1.2.1.1-SjMXkaP5Y6_Zlf4YWZukqzez2dfFtFk2aN8Yrlm1iaEF7n0Vuh4NrSaq7DNS2ZhSSub45VYHRBb.._0.AoVMoywJvswa4XnIk0VHpxoSk1iS7_fDfoijvHtt9vP5MRhaVWqT5RxqqKddE5RaoEECRMf.9ae1Wy15Q9SMijLTKtxcmkCK0O87AU4GbrRhh9tIlbaBtIQ.xlEcdz.DsXyH3fN4BqvYX0YAD_CA5uqUZOrkGxkgKjTXzfcOLyO1wURxDuuLTZuhIV2RjI55LJN9hrKuBvgLvuZkr9OlyYtMeMpvsENeC0MG3mumrMYSDVl1cSnfemSuivTCJe0VySJ8aA; __cf_bm=Hr2Yhi2o2Zar4M86H2Yl7nm7vUNHk7tsD09YMnYqQLI-1780241299.6080015-1.0.1.1-V2Nsrt_ri3_2D7NbvFliyEceNoUlk07VCP4O67DVN4jmZTzUbYISAA4n9TMDr8ZDS8QYaQERCMJcKsqKyJqfjU8rLHt1.KYA7jpxBm5gE.mjdDmwcetF2wEWY1gp1Tom; media_layout=four-col; cookie_consent=eyJ1dWlkIjoiY2Q4NjJlZmQtOTY3My00OWU1LWE2YmItYzBiYWFlMDc2YzZkIiwidGltZXN0YW1wIjoxNzgwMjQxMzM2NDE1LCJjYXRlZ29yaWVzIjp7ImVzc2VudGlhbCI6dHJ1ZSwiZnVuY3Rpb25hbCI6dHJ1ZSwiYW5hbHl0aWNzIjp0cnVlLCJ0YXJnZXRpbmciOnRydWV9LCJ2ZXJzaW9uIjoidjEuMCIsInVzZXJfaWQiOjB9\n';
+      var agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0';
+      var cookie = 'coc=PL; cor=ENG; coe=ww; cookie_consent=eyJ1dWlkIjoiYmNmYmMwY2YtODZiNy00YWY2LWFiNTQtMmM2YWYyYjU0NGZjIiwidGltZXN0YW1wIjoxNzgxMjUzNDI3NDE0LCJjYXRlZ29yaWVzIjp7ImVzc2VudGlhbCI6dHJ1ZSwiZnVuY3Rpb25hbCI6dHJ1ZSwiYW5hbHl0aWNzIjp0cnVlLCJ0YXJnZXRpbmciOnRydWV9LCJ2ZXJzaW9uIjoidjEuMCIsInVzZXJfaWQiOjB9; cookie_consent_required=1; show_cookie_consent_modal=1; cfc_ok=00|2|ww|spankbang|master|0; av=simple:True:True; sb_session=eyJfcGVybWFuZW50Ijp0cnVlLCJ1c2VyIjp7ImlkIjowfX0.aivFMw.Svfl-e1JAZFH86AS4a28fWSZfEM; backend_version=main; __cf_bm=bHo.CcBJuzTcOPuXoYBq1Vnk1YSSUpv3W1xyr3iiurM-1781253420.1287293-1.0.1.1-mSmfsfIA9AOtIpRHKdUhUC7bUuXFBsGcAmqAAJPrtZM79uJIKILVTPez01TBGQx6R.fUkQsUCjgZKrFLULUuMYzs2z7RXTzbOB3luSn0lkCcRaAvATtuHL2iBtTObutD; media_layout=six-col; cf_clearance=tUnGZBUZmw5j9WXtsF2qI51i3Hu_bLudZYCo90vY1aw-1781253420-1.2.1.1-Cy.bNBXwp5Hzutgbc1HDFqsaycqRibsaJCfUMagEGPER_gKV89iWQpWDlUQ2fSqxAEy_4h2Kt2_Rqzhsh8BvJnuRkyldiOUZews.oAptJbN_VrvsOIJalmIc3UH1sKnzOGPPQdqFjU6pxGHSktDQYBqhwMGcOuyhPPFyTm.X3Ck7ax9.bZCksvD9xaymiTSNOW6HPJ6HPITeKdyVKaSGFiMBxIw40zOwknTVggG6bUoqRi8.Oo.7ablWaS8CqAm369KchDo9EGnQ9.sKxACEVklqagIThylfPJ_uNvwFjuN_BWFHsi6Rho8ZFyz81SB9gd8K1WJzdSW4h.znkOTOuA; age_pass=1';
       var durationMapping = {
         'any': '',
         '10+ min': '&d=10',
@@ -297,7 +298,7 @@
             // 'Accept-Encoding': 'gzip, deflate, br, zstd',
             // 'Alt-Used': 'spankbang.com',
             // 'TE': 'trailers',
-            'User-Agent': 'PostmanRuntime/7.54.0',
+            'User-Agent': agent,
             'Cookie': cookie
           }
         });
@@ -361,7 +362,8 @@
         }, false, {
           dataType: 'text',
           headers: {
-            'User-Agent': 'PostmanRuntime/7.54.0' // 'my_Referer': 'https://spankbang.com',
+            'User-Agent': agent,
+            'Cookie': cookie // 'my_Referer': 'https://spankbang.com',
             // 'my_Cookie': cookie
 
           }
@@ -25236,12 +25238,12 @@
         var globalSearchElement = $('.open--search');
         var filterItems; // let filter = this.buildXxxFilter();
 
-        new SpankBang(_thisComponent);
+        var spankBang = new SpankBang(_thisComponent);
         var xvideos = new Xvideos(_thisComponent);
         var xxamster = new xXamster(_thisComponent);
         var xxxBookmarks = new XxxBookmarks(_thisComponent);
         var sourcesByName = {
-          // "spankBang": spankBang,
+          "spankBang": spankBang,
           "xvideos": xvideos,
           "xxamster": xxamster,
           "xxxBookmarks": xxxBookmarks
