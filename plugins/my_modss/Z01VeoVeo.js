@@ -1,4 +1,4 @@
-function Z01Rezka(_component, _params) {
+function Z01VeoVeo(_component, _params) {
     let component = _component
     let params = _params
     let network = new Lampa.Reguest();
@@ -20,7 +20,7 @@ function Z01Rezka(_component, _params) {
     this.search = function (_params, kinopoiskId) {
         let title = params.search || params.search_one || movieTitle(params);
         origTitle = params.movie.original_title || params.movie.original_name;
-        let url = 'https://z01.online/lite/rezka?';
+        let url = 'https://z01.online/lite/veoveo?';
         var search_date = params.search_date || params.movie.release_date || params.movie.first_air_date || params.movie.last_air_date || '0000';
         var search_year = parseInt((search_date + '').slice(0, 4));
         if (kinopoiskId) {
@@ -59,7 +59,8 @@ function Z01Rezka(_component, _params) {
                             let videoItem = new VideoItem();
                             videoItem.title = item.title
                             videoItem.info = ''
-                            videoItem.pageUrl = item.url
+                            videoItem.quality = '1080p'
+                            videoItem.url = item.url
                             return videoItem
                         }))
                     }
@@ -139,7 +140,7 @@ function Z01Rezka(_component, _params) {
                         videoItem.info = ''
                         videoItem.seasonNum = season.name.match(/\d+/)?.[0] ?? season.name
                         videoItem.episodeNum = item.name.match(/\d+/)?.[0] ?? index
-                        videoItem.pageUrl = item.url
+                        videoItem.url = item.url
                         return videoItem
                     }))
                 } catch (e) {
@@ -240,26 +241,48 @@ function Z01Rezka(_component, _params) {
             if (viewed.indexOf(hash) !== -1) element.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_star', {}, true) + '</div>');
 
             videoItem.timeline = element.timeline
+            videoItem.quality = videoItem.qualitys
 
             element.on('hover:enter', function () {
                 choice.last_viewed = videoItem.episodeNum;
                 if (params.movie.id) Lampa.Favorite.add('history', params.movie, 100);
 
-                getStream(videoItem,
-                    function onSuccess(videoItem) {
-                        videoItem.playlist = videoItems
-                        videoItem.selectedSubsIdx = component.getSelectedSubsIdx(videoItem.subtitles);
-                        Lampa.Player.play(videoItem);
-                        Lampa.Player.playlist(videoItems)
+                var playlist = [];
+                var first = {
+                    url: videoItem.url,
+                    quality: videoItem.quality,
+                    timeline: view,
+                    title: videoItem.title
+                };
+                if (videoItem.seasonNum) {
+                    videoItems.forEach(function (vi, i) {
+                        playlist.push({
+                            id: i,
+                            title: vi.title,
+                            url: vi.url,
+                            quality: vi.quality,
+                            timeline: vi.timeline
+                        });
+                    });
+                } else playlist.push(first);
 
-                        // if (videoItem.subtitles && Lampa.Player.subtitles) Lampa.Player.subtitles(videoItem.subtitles)
+                // if (Platform.is('android')) {
+                //     Lampa.Player.runas('android');
+                // }
+                Lampa.Player.play(first);
+                Lampa.Player.playlist(playlist);
+                //
+                // videoItem.playlist = videoItems
+                //                 Lampa.Player.play(videoItem);
+                //                 Lampa.Player.playlist(videoItems)
 
-                        if (viewed.indexOf(hash) == -1) {
-                            viewed.push(hash)
-                            element.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_star', {}, true) + '</div>')
-                            Lampa.Storage.set('online_view', viewed)
-                        }
-                    })
+                // if (videoItem.subtitles && Lampa.Player.subtitles) Lampa.Player.subtitles(videoItem.subtitles)
+
+                if (viewed.indexOf(hash) == -1) {
+                    viewed.push(hash)
+                    element.append('<div class="torrent-item__viewed">' + Lampa.Template.get('icon_star', {}, true) + '</div>')
+                    Lampa.Storage.set('online_view', viewed)
+                }
             });
             component.append(element);
             component.contextmenu({
@@ -346,39 +369,6 @@ function Z01Rezka(_component, _params) {
         })
     }
 
-    /**
-     *
-     * @param {VideoItem} videoItem
-     */
-    function getStream(videoItem, onSuccess) {
-        if (videoItem.url) return onSuccess(videoItem);
-
-        network.clear();
-        network.timeout(20000);
-        network.native(videoItem.pageUrl, function (json) {
-            try {
-                videoItem.quality = json.quality
-                videoItem.subtitles = json.subtitles
-
-                var preferably = Lampa.Storage.get('video_quality_default');
-                if (preferably && videoItem.quality[preferably + 'p']) {
-                    videoItem.url = videoItem.quality[preferably + 'p'];
-                } else {
-                    videoItem.url = videoItem.quality[Object.keys(videoItem.quality)[0]]
-                }
-                onSuccess(videoItem)
-            } catch (e) {
-                let msg = "Error parsing getStream response. ";
-                console.log('modss', msg + e.stack);
-                Lampa.Noty.show(msg);
-            }
-        }, function onError(a, c) {
-            let msg = "GetStream request error. ";
-            console.log('modss', msg + network.errorDecode(a, c));
-            Lampa.Noty.show(msg);
-        });
-    }
-
     class VideoItem {
         seasonNum
         episodeNum
@@ -397,4 +387,4 @@ function Z01Rezka(_component, _params) {
 }
 
 
-export default Z01Rezka
+export default Z01VeoVeo

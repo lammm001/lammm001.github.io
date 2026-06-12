@@ -1,5 +1,5 @@
 import Zombie from "./Zombie";
-import Z01Rezka from "./Z01Rezka";
+import Z01VeoVeo from "./Z01VeoVeo";
 import VideoCdn from "./VideoCdn";
 
 (function () {
@@ -1987,7 +1987,7 @@ function decode(x){
             over: true,
             step: 250
         });
-        var balanser = 'rezkaHD'; //Lampa.Storage.get('onlines_balanser', 'rezka');
+        var balanser = 'VeoVeo'; //Lampa.Storage.get('onlines_balanser', 'rezka');
 
         let continueWatching;
         let onlineCardCached;
@@ -2001,9 +2001,9 @@ function decode(x){
             }
         }
         var sources = {
-            videocdn: new VideoCdn(this, object),
-            rezka: new SDRezka(this, object),
-            rezkaHD: new Z01Rezka(this, object),
+            // videocdn: new VideoCdn(this, object),
+            // rezka: new SDRezka(this, object),
+            VeoVeo: new Z01VeoVeo(this, object),
             collaps: new collaps(this, object),
             zombie: new Zombie(this, object),
         };
@@ -2019,7 +2019,7 @@ function decode(x){
         };
         var balansers = {
             videocdn: 'VideoCDN',
-            rezkaHD: 'HDRezka',
+            VeoVeo: 'VeoVeo',
             rezka: 'Rezka',
             kinobase: 'Kinobase',
             collaps: 'Collaps',
@@ -2036,7 +2036,7 @@ function decode(x){
             kodik: 'Kodik',
             videoapi: 'VideoAPI'
         };
-        var filter_sources = ['rezkaHD', 'collaps', 'zombie'];
+        var filter_sources = ['VeoVeo', 'collaps', 'zombie'];
         // ,  'rezka',  'kinobase' ,       'kodik', 'videoapi', 'zombie', 'videocdn'  'hdvb',  , 'original'    'cdnmovies', 'seasonvar', 'kinoPub'];
         // шаловливые ручки
         // if ((typeof object == 'object') && !object.movie.number_of_seasons) /*filter_sources.push('seasonvar');
@@ -2046,8 +2046,8 @@ function decode(x){
         // filter_sources.push('uakino');
 
         if (filter_sources.indexOf(balanser) == -1) {
-            balanser = 'rezkaHD';
-            Lampa.Storage.set('onlines_balanser', 'rezkaHD');
+            balanser = 'VeoVeo';
+            Lampa.Storage.set('onlines_balanser', 'VeoVeo');
         }
         scroll.body().addClass('torrent-list');
 
