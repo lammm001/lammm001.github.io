@@ -7,7 +7,7 @@ import Account from './account'
 
 
 let network = new Reguest()
-let api = Utils.protocol() + 'cubnotrip.top/api/'
+let api = Utils.protocol() + 'cub.rip/api/'
 
 
 class WorkerArray {

@@ -80,7 +80,7 @@ function open() {
                     img.src = './img/img_broken.svg'
                 }
 
-                img.src = element.card.poster ? element.card.poster : element.card.img ? element.card.img : Utils.protocol() + 'imagetmdb.cubnotrip.top/t/p/' + poster_size + '/' + element.card.poster_path
+                img.src = element.card.poster ? element.card.poster : element.card.img ? element.card.img : Utils.protocol() + 'imagetmdb.cub.rip/t/p/' + poster_size + '/' + element.card.poster_path
 
                 item.on('hover:enter', () => {
                     Modal.close()

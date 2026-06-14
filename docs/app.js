@@ -943,7 +943,7 @@
 
     var html$o = "<div class=\"account-modal\">\n    <div class=\"account-modal__icon-svg\">\n        <svg height=\"184\" viewBox=\"0 0 199 184\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <circle cx=\"100\" cy=\"92\" r=\"92\" fill=\"#D9D9D9\" fill-opacity=\"0.06\"/>\n            <path d=\"M161.917 23H78.1668C75.2052 23 72.365 24.1765 70.2708 26.2706C68.1767 28.3648 67.0002 31.2051 67.0002 34.1667V109.542H55.8335V115.125H89.3335C90.0739 115.125 90.784 114.831 91.3075 114.307C91.831 113.784 92.1252 113.074 92.1252 112.333V106.529L112.381 120.708L92.1252 134.887V129.083C92.1252 128.343 91.831 127.633 91.3075 127.109C90.784 126.586 90.0739 126.292 89.3335 126.292H55.8335V131.875H67.0002V145.833C67.0002 148.795 68.1767 151.635 70.2708 153.729C72.365 155.824 75.2052 157 78.1668 157H161.917C164.878 157 167.719 155.824 169.813 153.729C171.907 151.635 173.083 148.795 173.083 145.833V34.1667C173.083 31.2051 171.907 28.3648 169.813 26.2706C167.719 24.1765 164.878 23 161.917 23V23ZM78.1668 28.5833H161.917C163.398 28.5833 164.818 29.1716 165.865 30.2187C166.912 31.2657 167.5 32.6859 167.5 34.1667V38.7701L160.434 47.603C159.609 48.6389 158.561 49.4751 157.368 50.0489C156.174 50.6227 154.866 50.9194 153.542 50.9167H133.721C133.08 47.7613 131.368 44.9244 128.875 42.8868C126.382 40.8491 123.262 39.736 120.042 39.736C116.822 39.736 113.701 40.8491 111.208 42.8868C108.715 44.9244 107.003 47.7613 106.363 50.9167H86.5418C85.2175 50.9194 83.9097 50.6227 82.7162 50.0489C81.5226 49.4751 80.4742 48.6389 79.6492 47.603L72.5835 38.7701V34.1667C72.5835 32.6859 73.1717 31.2657 74.2188 30.2187C75.2659 29.1716 76.686 28.5833 78.1668 28.5833V28.5833ZM128.417 53.7083C128.417 55.3648 127.926 56.984 127.005 58.3612C126.085 59.7385 124.777 60.8119 123.247 61.4458C121.716 62.0797 120.033 62.2456 118.408 61.9224C116.783 61.5993 115.291 60.8016 114.12 59.6304C112.949 58.4591 112.151 56.9668 111.828 55.3422C111.505 53.7176 111.67 52.0337 112.304 50.5034C112.938 48.973 114.012 47.665 115.389 46.7448C116.766 45.8245 118.385 45.3333 120.042 45.3333C122.263 45.3333 124.393 46.2157 125.964 47.7863C127.534 49.3569 128.417 51.4871 128.417 53.7083ZM161.917 151.417H78.1668C76.686 151.417 75.2659 150.828 74.2188 149.781C73.1717 148.734 72.5835 147.314 72.5835 145.833V131.875H86.5418V140.25C86.5421 140.76 86.6823 141.261 86.9472 141.697C87.2121 142.134 87.5915 142.489 88.0443 142.725C88.497 142.96 89.0057 143.067 89.515 143.034C90.0243 143.001 90.5148 142.829 90.9331 142.536L118.85 122.995C119.217 122.737 119.517 122.395 119.724 121.997C119.931 121.599 120.04 121.157 120.04 120.708C120.04 120.26 119.931 119.818 119.724 119.42C119.517 119.022 119.217 118.679 118.85 118.422L90.9331 98.8803C90.5148 98.5878 90.0243 98.4156 89.515 98.3825C89.0057 98.3493 88.497 98.4564 88.0443 98.6921C87.5915 98.9278 87.2121 99.2831 86.9472 99.7194C86.6823 100.156 86.5421 100.656 86.5418 101.167V109.542H72.5835V47.709L75.2914 51.0925C76.6378 52.7836 78.3491 54.1484 80.2973 55.0848C82.2455 56.0212 84.3803 56.505 86.5418 56.5H106.363C107.003 59.6554 108.715 62.4922 111.208 64.5299C113.701 66.5675 116.822 67.6807 120.042 67.6807C123.262 67.6807 126.382 66.5675 128.875 64.5299C131.368 62.4922 133.08 59.6554 133.721 56.5H153.542C155.703 56.505 157.838 56.0212 159.786 55.0848C161.735 54.1484 163.446 52.7836 164.792 51.0925L167.5 47.709V145.833C167.5 147.314 166.912 148.734 165.865 149.781C164.818 150.828 163.398 151.417 161.917 151.417V151.417Z\" fill=\"white\"/>\n            <path d=\"M117.25 50.9166H122.833V56.5H117.25V50.9166Z\" fill=\"white\"/>\n            <path d=\"M22.3335 36.9584H55.8335V42.5417H22.3335V36.9584Z\" fill=\"white\"/>\n            <path d=\"M11.1665 36.9584H16.7498V42.5417H11.1665V36.9584Z\" fill=\"white\"/>\n            <path d=\"M0 56.5H33.5V62.0833H0V56.5Z\" fill=\"white\"/>\n            <path d=\"M30.7085 151.417H55.8335V157H30.7085V151.417Z\" fill=\"white\"/>\n            <path d=\"M19.5415 151.417H25.1248V157H19.5415V151.417Z\" fill=\"white\"/>\n            <path d=\"M0 137.458H47.4583V143.042H0V137.458Z\" fill=\"white\"/>\n            <path d=\"M44.6665 90H61.4165V95.5833H44.6665V90Z\" fill=\"white\"/>\n            <path d=\"M33.5 90H39.0833V95.5833H33.5V90Z\" fill=\"white\"/>\n            <path d=\"M145.167 129.083H161.917V134.667H145.167V129.083Z\" fill=\"white\"/>\n            <path d=\"M122.833 140.25H161.917V145.833H122.833V140.25Z\" fill=\"white\"/>\n            <circle cx=\"169\" cy=\"32\" r=\"30\" fill=\"white\"/>\n            <rect x=\"159.808\" y=\"18.5649\" width=\"32\" height=\"6\" rx=\"3\" transform=\"rotate(45 159.808 18.5649)\" fill=\"#0C0C0C\"/>\n            <rect x=\"155.565\" y=\"41.1924\" width=\"32\" height=\"6\" rx=\"3\" transform=\"rotate(-45 155.565 41.1924)\" fill=\"#0C0C0C\"/>\n        </svg>\n    </div>\n\n    <div class=\"account-modal__desc\">\n        #{account_limited}\n    </div>\n</div>";
 
-    var html$n = "<div class=\"cub-premium\">\n    <div class=\"cub-premium__title\">CUB Premium</div>\n    <div class=\"cub-premium__descr\">\n        #{account_premium}\n    </div>\n    <div class=\"cub-premium__descr\">#{account_premium_more}</div>\n    <div class=\"cub-premium__url\">cubnotrip.top/premium</div>\n</div>";
+    var html$n = "<div class=\"cub-premium\">\n    <div class=\"cub-premium__title\">CUB Premium</div>\n    <div class=\"cub-premium__descr\">\n        #{account_premium}\n    </div>\n    <div class=\"cub-premium__descr\">#{account_premium_more}</div>\n    <div class=\"cub-premium__url\">cub.rip/premium</div>\n</div>";
 
     var html$m = "<div class=\"head-backward selector\">\n    <div class=\"head-backward__button\">\n        <svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"512\" height=\"512\" x=\"0\" y=\"0\" viewBox=\"0 0 492 492\" xml:space=\"preserve\">\n            <path d=\"M198.608 246.104 382.664 62.04c5.068-5.056 7.856-11.816 7.856-19.024 0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12C361.476 2.792 354.712 0 347.504 0s-13.964 2.792-19.028 7.864L109.328 227.008c-5.084 5.08-7.868 11.868-7.848 19.084-.02 7.248 2.76 14.028 7.848 19.112l218.944 218.932c5.064 5.072 11.82 7.864 19.032 7.864 7.208 0 13.964-2.792 19.032-7.864l16.124-16.12c10.492-10.492 10.492-27.572 0-38.06L198.608 246.104z\" fill=\"currentColor\"></path>\n        </svg>\n    </div>\n    <div class=\"head-backward__title\">{title}</div>\n</div>";
 
@@ -7869,7 +7869,7 @@
     };
 
     new create$p();
-    Utils.protocol() + 'cubnotrip.top/api/';
+    Utils.protocol() + 'cub.rip/api/';
 
     var WorkerArray = /*#__PURE__*/function () {
       function WorkerArray(field) {
@@ -8144,7 +8144,7 @@
               img.src = './img/img_broken.svg';
             };
 
-            img.src = element.card.poster ? element.card.poster : element.card.img ? element.card.img : Utils.protocol() + 'imagetmdb.cubnotrip.top/t/p/' + poster_size + '/' + element.card.poster_path;
+            img.src = element.card.poster ? element.card.poster : element.card.img ? element.card.img : Utils.protocol() + 'imagetmdb.cub.rip/t/p/' + poster_size + '/' + element.card.poster_path;
             item.on('hover:enter', function () {
               Modal.close();
               Activity$1.push({
@@ -11553,7 +11553,7 @@
 
     var body$2;
     var network$7 = new create$p();
-    var api = Utils.protocol() + 'cubnotrip.top/api/';
+    var api = Utils.protocol() + 'cub.rip/api/';
     var listener$6 = start$6();
     var notice_load = {
       time: 0,
@@ -11610,7 +11610,7 @@
           img.src = './img/img_load.svg';
         };
 
-        img.src = 'https://cubnotrip.top/img/profiles/' + (account.profile.icon || 'f_1') + '.png';
+        img.src = 'https://cub.rip/img/profiles/' + (account.profile.icon || 'f_1') + '.png';
       }
     }
 
@@ -11984,7 +11984,7 @@
             items: items.map(function (elem, index) {
               elem.title = elem.name;
               elem.template = 'selectbox_icon';
-              elem.icon = '<img src="https://cubnotrip.top/img/profiles/' + elem.icon + '.png" />';
+              elem.icon = '<img src="https://cub.rip/img/profiles/' + elem.icon + '.png" />';
               elem.index = index;
               elem.selected = account.profile.id == elem.id;
               return elem;
@@ -12605,7 +12605,7 @@
       full: full$4
     };
 
-    var prox$1 = 'http://proxy.cubnotrip.top/img/';
+    var prox$1 = 'http://proxy.cub.rip/img/';
     var baseurl$2 = 'https://ctx.playfamily.ru/screenapi/v1/noauth/';
     var network$6 = new create$p();
     var menu_list$1 = [];
@@ -13073,7 +13073,7 @@
       clear: network$6.clear
     };
 
-    var prox = 'http://proxy.cubnotrip.top/img/';
+    var prox = 'http://proxy.cub.rip/img/';
     var prox_api = '';
     var baseurl$1 = prox_api + 'https://api.ivi.ru/mobileapi/';
     var network$5 = new create$p();
@@ -13643,7 +13643,7 @@
       clear: network$5.clear
     };
 
-    var baseurl = Utils.protocol() + 'tmdb.cubnotrip.top/';
+    var baseurl = Utils.protocol() + 'tmdb.cub.rip/';
     var network$4 = new create$p();
 
     function url$1(u) {
@@ -14920,7 +14920,7 @@
 
 
     function relise(oncomplite, onerror) {
-      network$2.silent(Utils.protocol() + 'tmdb.cubnotrip.top?sort=releases&results=200', function (json) {
+      network$2.silent(Utils.protocol() + 'tmdb.cub.rip?sort=releases&results=200', function (json) {
         json.results.forEach(function (item) {
           item.tmdbID = item.id;
         });
@@ -26743,7 +26743,7 @@
         title: card.title || card.name,
         subtitle: subtitle || relise,
         image_ratio: '1by1',
-        image_url: card.poster ? card.poster : card.img ? card.img : 'http://imagetmdb.cubnotrip.top/t/p/w300/' + card.poster_path,
+        image_url: card.poster ? card.poster : card.img ? card.img : 'http://imagetmdb.cub.rip/t/p/w300/' + card.poster_path,
         action_data: JSON.stringify(card),
         is_playable: false
       };

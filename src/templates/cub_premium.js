@@ -4,7 +4,7 @@ let html = `<div class="cub-premium">
         #{account_premium}
     </div>
     <div class="cub-premium__descr">#{account_premium_more}</div>
-    <div class="cub-premium__url">cubnotrip.top/premium</div>
+    <div class="cub-premium__url">cub.rip/premium</div>
 </div>`
 
 export default html

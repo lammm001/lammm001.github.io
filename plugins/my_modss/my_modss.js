@@ -1,6 +1,6 @@
 import Zombie from "./Zombie";
 import Z01VeoVeo from "./Z01VeoVeo";
-import VideoCdn from "./VideoCdn";
+import Z01Hdvb from "./Z01Hdvb";
 
 (function () {
     'use strict';
@@ -2004,6 +2004,7 @@ function decode(x){
             // videocdn: new VideoCdn(this, object),
             // rezka: new SDRezka(this, object),
             VeoVeo: new Z01VeoVeo(this, object),
+            Hdvb: new Z01Hdvb(this, object),
             collaps: new collaps(this, object),
             zombie: new Zombie(this, object),
         };
@@ -2020,6 +2021,7 @@ function decode(x){
         var balansers = {
             videocdn: 'VideoCDN',
             VeoVeo: 'VeoVeo',
+            Hdvb: 'Hdvb',
             rezka: 'Rezka',
             kinobase: 'Kinobase',
             collaps: 'Collaps',
@@ -2036,7 +2038,7 @@ function decode(x){
             kodik: 'Kodik',
             videoapi: 'VideoAPI'
         };
-        var filter_sources = ['VeoVeo', 'collaps', 'zombie'];
+        var filter_sources = ['VeoVeo', 'Hdvb', 'collaps', 'zombie'];
         // ,  'rezka',  'kinobase' ,       'kodik', 'videoapi', 'zombie', 'videocdn'  'hdvb',  , 'original'    'cdnmovies', 'seasonvar', 'kinoPub'];
         // шаловливые ручки
         // if ((typeof object == 'object') && !object.movie.number_of_seasons) /*filter_sources.push('seasonvar');
@@ -2251,11 +2253,13 @@ function decode(x){
                 // var url = API + 'KPfind/' + encodeURIComponent(query);
                 // if (object.movie.imdb_id) url = API + 'KPimdb/' + encodeURIComponent(object.movie.imdb_id);
                 network.timeout(1000 * 20);
-                var url = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=' +
-                    encodeURIComponent(_this2.kpCleanTitle(query));
+                var url = 'http://z01.online/externalids?imdb_id=' + encodeURIComponent(imdb_id);
 
                 network.silent(url, function (json) {
-                    display(json.films)
+                    if (json.kinopoisk_id) {
+                        _this2.extendChoice();
+                        sources[balanser].search(object, json.kinopoisk_id);
+                    } else display(json.films)
                 }, function (a, c) {
                     _this2.emptyForQuery(query)
                 }, null, {
@@ -2272,7 +2276,7 @@ function decode(x){
                 // if (balanser == 'videocdn' || balanser == 'videoapi') vcdn_search();
                 // else
                 if (/*balanser == 'cdnmovies' || balanser == 'rezka' || balanser == 'collaps' ||
-                    */balanser == 'rezka' || balanser == 'zombie') kp_search(); else {
+                    */balanser == 'rezka' || balanser == 'Hdvb' || balanser == 'zombie') kp_search(); else {
                     function add(u, params) {
                         return u + (/\?/.test(u) ? '&' : '?') + params;
                     }

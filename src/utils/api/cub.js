@@ -10,7 +10,7 @@ import Lang from '../lang'
 import TMDB from './tmdb'
 import TMDBApi from '../tmdb'
 
-let baseurl = Utils.protocol() + 'tmdb.cubnotrip.top/'
+let baseurl = Utils.protocol() + 'tmdb.cub.rip/'
 let network = new Reguest()
 
 function url(u, params = {}) {

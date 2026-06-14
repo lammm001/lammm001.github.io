@@ -206,7 +206,7 @@ function favorite(params = {}, oncomplite, onerror) {
  * @param {function} onerror
  */
 function relise(oncomplite, onerror) {
-    network.silent(Utils.protocol() + 'tmdb.cubnotrip.top?sort=releases&results=200', (json) => {
+    network.silent(Utils.protocol() + 'tmdb.cub.rip?sort=releases&results=200', (json) => {
         json.results.forEach((item) => {
             item.tmdbID = item.id
         })

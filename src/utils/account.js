@@ -19,7 +19,7 @@ import Input from '../components/settings/input'
 
 let body
 let network = new Reguest()
-let api = Utils.protocol() + 'cubnotrip.top/api/'
+let api = Utils.protocol() + 'cub.rip/api/'
 let listener = Subscribe()
 
 let notice_load = {
@@ -92,7 +92,7 @@ function updateProfileIcon() {
             img.src = './img/img_load.svg'
         }
 
-        img.src = 'https://cubnotrip.top/img/profiles/' + (account.profile.icon || 'f_1') + '.png'
+        img.src = 'https://cub.rip/img/profiles/' + (account.profile.icon || 'f_1') + '.png'
     }
 }
 
@@ -509,7 +509,7 @@ function showProfiles(controller) {
                 items: items.map((elem, index) => {
                     elem.title = elem.name
                     elem.template = 'selectbox_icon'
-                    elem.icon = '<img src="https://cubnotrip.top/img/profiles/' + elem.icon + '.png" />'
+                    elem.icon = '<img src="https://cub.rip/img/profiles/' + elem.icon + '.png" />'
                     elem.index = index
 
                     elem.selected = account.profile.id == elem.id
