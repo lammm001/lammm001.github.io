@@ -201,7 +201,7 @@
       var network = new Lampa.Reguest();
       var proxy = ''; // let proxy = 'https://cr1.lammm.deno.net/'
 
-      var baseUrl = proxy + 'https://spankbang.com';
+      var baseUrl = proxy + 'https://ru.spankbang.com';
       var agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0';
       var cookie = 'coc=PL; cor=ENG; coe=ww; cookie_consent=eyJ1dWlkIjoiYmNmYmMwY2YtODZiNy00YWY2LWFiNTQtMmM2YWYyYjU0NGZjIiwidGltZXN0YW1wIjoxNzgxMjUzNDI3NDE0LCJjYXRlZ29yaWVzIjp7ImVzc2VudGlhbCI6dHJ1ZSwiZnVuY3Rpb25hbCI6dHJ1ZSwiYW5hbHl0aWNzIjp0cnVlLCJ0YXJnZXRpbmciOnRydWV9LCJ2ZXJzaW9uIjoidjEuMCIsInVzZXJfaWQiOjB9; cookie_consent_required=1; show_cookie_consent_modal=1; cfc_ok=00|2|ww|spankbang|master|0; av=simple:True:True; sb_session=eyJfcGVybWFuZW50Ijp0cnVlLCJ1c2VyIjp7ImlkIjowfX0.aivFMw.Svfl-e1JAZFH86AS4a28fWSZfEM; backend_version=main; __cf_bm=bHo.CcBJuzTcOPuXoYBq1Vnk1YSSUpv3W1xyr3iiurM-1781253420.1287293-1.0.1.1-mSmfsfIA9AOtIpRHKdUhUC7bUuXFBsGcAmqAAJPrtZM79uJIKILVTPez01TBGQx6R.fUkQsUCjgZKrFLULUuMYzs2z7RXTzbOB3luSn0lkCcRaAvATtuHL2iBtTObutD; media_layout=six-col; cf_clearance=tUnGZBUZmw5j9WXtsF2qI51i3Hu_bLudZYCo90vY1aw-1781253420-1.2.1.1-Cy.bNBXwp5Hzutgbc1HDFqsaycqRibsaJCfUMagEGPER_gKV89iWQpWDlUQ2fSqxAEy_4h2Kt2_Rqzhsh8BvJnuRkyldiOUZews.oAptJbN_VrvsOIJalmIc3UH1sKnzOGPPQdqFjU6pxGHSktDQYBqhwMGcOuyhPPFyTm.X3Ck7ax9.bZCksvD9xaymiTSNOW6HPJ6HPITeKdyVKaSGFiMBxIw40zOwknTVggG6bUoqRi8.Oo.7ablWaS8CqAm369KchDo9EGnQ9.sKxACEVklqagIThylfPJ_uNvwFjuN_BWFHsi6Rho8ZFyz81SB9gd8K1WJzdSW4h.znkOTOuA; age_pass=1';
       var durationMapping = {
