@@ -305,7 +305,7 @@
       };
 
       this.loadItemDetails = function (item, onComplete, onError) {
-        network["native"](item.detailsUrl, function (respData) {
+        network.silent(item.detailsUrl, function (respData) {
           try {
             var match = respData.replace(/\n/g, '').match(/var stream_data = (.*);\n?.*var live_keywords/);
             var dataJson = JSON.parse(match[1].replace(/'/g, '"'));

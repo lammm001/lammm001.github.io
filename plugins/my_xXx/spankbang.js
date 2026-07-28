@@ -95,7 +95,7 @@ function SpankBang(component) {
     }
 
     this.loadItemDetails = function (item, onComplete, onError) {
-        network.native(item.detailsUrl, (respData) => {
+        network.silent(item.detailsUrl, (respData) => {
             try {
                 let match = respData.replace(/\n/g, '')
                     .match(/var stream_data = (.*);\n?.*var live_keywords/);
