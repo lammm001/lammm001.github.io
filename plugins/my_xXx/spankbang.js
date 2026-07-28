@@ -29,7 +29,7 @@ function SpankBang(component) {
         url += '/' + page;
         url += '/?o=all' + durationMapping[durationFilter] + qualityMapping[qualityFilter]
         // 'https://cors.nb557.workers.dev:8443/'+
-        network.native(url, (respData) => {
+        network.silent(url, (respData) => {
             // network.native(url, (respData) => {
             const resultItems = [];
             try {
