@@ -1,8 +1,8 @@
 function Xvideos(component) {
     var network = new Lampa.Reguest();
     // let proxy = ''
-    // let proxy = 'https://cors.nb557.workers.dev/'
-    let proxy = 'https://cr1.lammm.deno.net/'
+    let proxy = 'https://vi1pr.netlify.app/pr/'
+    // let proxy = 'https://cr1.lammm.deno.net/'
     const baseUrl = proxy + 'https://www.xvideos.com';
 
     let durationMapping = {

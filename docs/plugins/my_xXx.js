@@ -3,9 +3,9 @@
 
     function Xvideos(component) {
       var network = new Lampa.Reguest(); // let proxy = ''
-      // let proxy = 'https://cors.nb557.workers.dev/'
 
-      var proxy = 'https://cr1.lammm.deno.net/';
+      var proxy = 'https://vi1pr.netlify.app/pr/'; // let proxy = 'https://cr1.lammm.deno.net/'
+
       var baseUrl = proxy + 'https://www.xvideos.com';
       var durationMapping = {
         'any': '',
@@ -24211,10 +24211,10 @@
 
     function xXamster(component) {
       var network = new Lampa.Reguest(); // let proxy = ''
-      // let proxy = 'https://cors.fx666.workers.dev/'
+      // let proxy = 'https://vi1pr.netlify.app/pr/'
+      // let proxy = 'https://cr1.lammm.deno.net/'
 
-      var proxy = 'https://cr1.lammm.deno.net/'; // let proxy = ''
-
+      var proxy = '';
       var baseUrl = proxy + 'https://ru.xhamster.com';
       var durationMapping = {
         'any': '',
@@ -24258,7 +24258,10 @@
               'User-Agent': 'lampa',
               'Origin': 'https://ru.xhamster.com',
               'Referer': 'https://ru.xhamster.com'
-            })
+            }),
+            'My_User-Agent': 'lampa',
+            'My_Origin': 'https://ru.xhamster.com',
+            'My_Referer': 'https://ru.xhamster.com'
           }
         });
       };
@@ -24322,14 +24325,17 @@
         }, false, {
           dataType: 'text',
           headers: {
-            'my_sec-ch-ua-mobile': '?0',
-            'my_sec-ch-ua-platform': 'Windows',
+            // 'my_sec-ch-ua-mobile': '?0',
+            // 'my_sec-ch-ua-platform': 'Windows',
             // 'my_Cookie': 'settings=eyJpc1dlYnBTdXBwb3J0ZWQiOnRydWUsImlzV2VibVN1cHBvcnRlZCI6dHJ1ZSwiZXh0RGV0ZWN0ZWRWMiI6bnVsbCwibW9tZW50c0lzSGlkZGVuIjpudWxsLCJ0cnVzdFVSTHMiOlsicnUueGhhbXN0ZXIuY29tIl0sImlzU2lkZWJhckhpZGRlbiI6bnVsbCwiZXhwaXJlcyI6eyJ0cnVzdFVSTHMiOjE3ODAxNTc3MzJ9LCJ0c1Nwb3RDb3VudGVycyI6W3sic3BvdCI6Im1hc3Rlcl9jdWJlIiwidGltZSI6MTc4MDE1MDUzMiwiY291bnQiOjF9LHsic3BvdCI6Im1hc3Rlcl9mb290ZXIiLCJ0aW1lIjoxNzgwMTUwNTMyLCJjb3VudCI6MX1dfQ%3D%3D; _cfg=d8a7a65a0fd32bb3a48d70e99295f60d; x_csrf_token=1; cookie_accept_v2=%7B%22e%22%3A1%2C%22f%22%3A1%2C%22t%22%3A1%2C%22a%22%3A1%7D; parental-control=yes',
             'x-cors-headers': JSON.stringify({
               'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
               'Origin': 'https://ru.xhamster.com',
               'Referer': 'https://ru.xhamster.com'
-            })
+            }),
+            'my_User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
+            'my_Origin': 'https://ru.xhamster.com',
+            'my_Referer': 'https://ru.xhamster.com'
           }
         });
       };
@@ -24386,13 +24392,13 @@
         var globalSearchElement = $('.open--search');
         var filterItems; // let filter = this.buildXxxFilter();
 
-        var spankBang = new SpankBang(_thisComponent);
-        var xvideos = new Xvideos(_thisComponent);
+        new SpankBang(_thisComponent);
+        new Xvideos(_thisComponent);
         var xxamster = new xXamster(_thisComponent);
         var xxxBookmarks = new XxxBookmarks(_thisComponent);
         var sourcesByName = {
-          "spankBang": spankBang,
-          "xvideos": xvideos,
+          // "spankBang": spankBang,
+          // "xvideos": xvideos,
           "xxamster": xxamster,
           "xxxBookmarks": xxxBookmarks
         };
