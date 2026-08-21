@@ -1,4 +1,5 @@
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir="/Users/vlad/chrome_lampa" --allow-running-insecure-content http://localhost:3000
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome  --user-data-dir="/Users/vlad/chrome_lampa" http://localhost:3000
+#/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir="/Users/vlad/chrome_lampa" --allow-running-insecure-content http://localhost:3000
 
 
 #https://cr1.lammm.deno.net/

@@ -24228,7 +24228,7 @@
       };
 
       this.loadItemDetails = function (item, onComplete, onError) {
-        network.silent(proxy + item.detailsUrl, function (respData) {
+        network["native"](proxy + item.detailsUrl, function (respData) {
           var match = respData.match(/<link rel="preload" href="(.{10,400}?\.m3u8)"/);
 
           if (!match) {
@@ -24259,9 +24259,9 @@
               'Origin': 'https://ru.xhamster.com',
               'Referer': 'https://ru.xhamster.com'
             }),
-            'My_User-Agent': 'lampa',
-            'My_Origin': 'https://ru.xhamster.com',
-            'My_Referer': 'https://ru.xhamster.com'
+            'User-Agent': 'lampa',
+            'Origin': 'https://ru.xhamster.com',
+            'Referer': 'https://ru.xhamster.com'
           }
         });
       };
@@ -24290,7 +24290,7 @@
           url += '/search/joymii?page=' + page;
         }
 
-        network.silent(url, function (respData) {
+        network["native"](url, function (respData) {
           var resultItems = [];
 
           try {
@@ -24333,9 +24333,9 @@
               'Origin': 'https://ru.xhamster.com',
               'Referer': 'https://ru.xhamster.com'
             }),
-            'my_User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
-            'my_Origin': 'https://ru.xhamster.com',
-            'my_Referer': 'https://ru.xhamster.com'
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
+            'Origin': 'https://ru.xhamster.com',
+            'Referer': 'https://ru.xhamster.com'
           }
         });
       };
@@ -24392,13 +24392,13 @@
         var globalSearchElement = $('.open--search');
         var filterItems; // let filter = this.buildXxxFilter();
 
-        new SpankBang(_thisComponent);
-        new Xvideos(_thisComponent);
+        var spankBang = new SpankBang(_thisComponent);
+        var xvideos = new Xvideos(_thisComponent);
         var xxamster = new xXamster(_thisComponent);
         var xxxBookmarks = new XxxBookmarks(_thisComponent);
         var sourcesByName = {
-          // "spankBang": spankBang,
-          // "xvideos": xvideos,
+          "spankBang": spankBang,
+          "xvideos": xvideos,
           "xxamster": xxamster,
           "xxxBookmarks": xxxBookmarks
         };

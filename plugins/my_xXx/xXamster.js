@@ -18,7 +18,7 @@ function xXamster(component) {
         '1080p+': '&quality=1080p',
     }
     this.loadItemDetails = function (item, onComplete, onError) {
-        network.silent(proxy + item.detailsUrl, (respData) => {
+        network.native(proxy + item.detailsUrl, (respData) => {
             let match = respData.match(/<link rel="preload" href="(.{10,400}?\.m3u8)"/);
             if (!match) {
                 Lampa.Noty.show('Video not found');
@@ -50,9 +50,9 @@ function xXamster(component) {
                     'Origin': 'https://ru.xhamster.com',
                     'Referer': 'https://ru.xhamster.com'
                 }),
-                'My_User-Agent': 'lampa',
-                'My_Origin': 'https://ru.xhamster.com',
-                'My_Referer': 'https://ru.xhamster.com'
+                'User-Agent': 'lampa',
+                'Origin': 'https://ru.xhamster.com',
+                'Referer': 'https://ru.xhamster.com'
             }
         });
     }
@@ -72,7 +72,7 @@ function xXamster(component) {
             url += '/search/joymii?page=' + page
         }
 
-        network.silent(url, (respData) => {
+        network.native(url, (respData) => {
             const resultItems = [];
             try {
                 let respDataFixed = respData.replace(/\n/g, '')
@@ -117,9 +117,9 @@ function xXamster(component) {
                     'Origin': 'https://ru.xhamster.com',
                     'Referer': 'https://ru.xhamster.com'
                 }),
-                'my_User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
-                'my_Origin': 'https://ru.xhamster.com',
-                'my_Referer': 'https://ru.xhamster.com'
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0',
+                'Origin': 'https://ru.xhamster.com',
+                'Referer': 'https://ru.xhamster.com'
             }
         });
     }
